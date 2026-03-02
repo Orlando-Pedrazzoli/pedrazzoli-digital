@@ -41,9 +41,13 @@ export default function Navbar() {
         <div className="max-w-[1200px] mx-auto h-[68px] flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 no-underline">
-            <div className="w-[34px] h-[34px] rounded-[10px] bg-green-600 flex items-center justify-center">
-              <Code size={17} color="#fff" strokeWidth={2.5} />
-            </div>
+            <div className="w-[34px] h-[34px] flex items-center justify-center">
+  <img
+    src="/favicon.png"
+    alt="OP Digital Logo"
+    className="w-full h-full object-contain"
+  />
+</div>
             <span className="font-display text-[22px] text-zinc-900 dark:text-zinc-100">
               {siteConfig.name}
             </span>
