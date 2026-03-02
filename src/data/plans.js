@@ -1,0 +1,61 @@
+export const plans = [
+  {
+    name: 'Site Institucional',
+    desc: 'Presença online profissional',
+    price: '997',
+    fromPrice: true,
+    features: [
+      'Até 5 páginas',
+      'Design personalizado responsivo',
+      'Formulário de contato / WhatsApp',
+      'SEO básico configurado',
+      'Domínio próprio + hospedagem',
+      'Google Analytics integrado',
+      '30 dias de suporte',
+    ],
+    highlight: false,
+    cta: 'Quero Meu Site',
+  },
+  {
+    name: 'E-Commerce',
+    desc: 'Loja online completa',
+    price: '2.497',
+    fromPrice: true,
+    features: [
+      'Produtos ilimitados',
+      'Carrinho + checkout completo',
+      'PIX, cartão (até 12x), boleto',
+      'Cálculo de frete automático',
+      'Painel de gestão de pedidos',
+      'Sistema de avaliações',
+      'Blog + cupons + promoções',
+      'SEO otimizado',
+      '60 dias de suporte',
+    ],
+    highlight: true,
+    cta: 'Quero Minha Loja',
+  },
+  {
+    name: 'Projeto Sob Medida',
+    desc: 'Necessidades específicas',
+    price: 'Sob consulta',
+    fromPrice: false,
+    features: [
+      'Escopo personalizado',
+      'Funcionalidades exclusivas',
+      'Integrações com sistemas externos',
+      'Painel admin completo',
+      'Área de clientes/alunos',
+      'App mobile (se necessário)',
+      'Treinamento da equipe',
+      'Suporte contínuo + manutenção',
+    ],
+    highlight: false,
+    cta: 'Solicitar Orçamento',
+  },
+]
+
+export const maintenancePlan = {
+  price: '197',
+  description: 'Atualizações, suporte contínuo e melhorias no seu site.',
+}

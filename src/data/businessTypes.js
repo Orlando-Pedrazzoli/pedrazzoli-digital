@@ -1,0 +1,91 @@
+import {
+  ShoppingBag, Utensils, Scissors, Heart, Dumbbell, Home,
+  Wrench, BookOpen, Camera, Coffee, Briefcase, Music,
+} from 'lucide-react'
+
+export const businessTypes = [
+  {
+    icon: ShoppingBag,
+    name: 'Loja Online',
+    desc: 'E-commerce completo com catálogo, carrinho, checkout e gestão de pedidos.',
+    color: '#16A34A',
+    bg: '#F0FDF4',
+  },
+  {
+    icon: Utensils,
+    name: 'Restaurante',
+    desc: 'Cardápio digital, pedidos online, QR code para mesa e delivery integrado.',
+    color: '#EA580C',
+    bg: '#FFF7ED',
+  },
+  {
+    icon: Scissors,
+    name: 'Salão & Barbearia',
+    desc: 'Agendamento online, portfólio de serviços e gestão de clientes.',
+    color: '#9333EA',
+    bg: '#FAF5FF',
+  },
+  {
+    icon: Heart,
+    name: 'Clínica & Saúde',
+    desc: 'Site institucional com agendamento, equipe médica e convênios.',
+    color: '#DC2626',
+    bg: '#FEF2F2',
+  },
+  {
+    icon: Dumbbell,
+    name: 'Academia & Personal',
+    desc: 'Planos, aulas, agendamento e área do aluno.',
+    color: '#0284C7',
+    bg: '#F0F9FF',
+  },
+  {
+    icon: Home,
+    name: 'Imobiliária',
+    desc: 'Listagem de imóveis com filtros, fotos, mapa e contato direto.',
+    color: '#CA8A04',
+    bg: '#FEFCE8',
+  },
+  {
+    icon: Wrench,
+    name: 'Serviços & Oficina',
+    desc: 'Portfólio de serviços, orçamento online e depoimentos de clientes.',
+    color: '#475569',
+    bg: '#F8FAFC',
+  },
+  {
+    icon: BookOpen,
+    name: 'Educação & Cursos',
+    desc: 'Plataforma de aulas, inscrições online e área do aluno.',
+    color: '#7C3AED',
+    bg: '#F5F3FF',
+  },
+  {
+    icon: Camera,
+    name: 'Fotógrafo & Criativo',
+    desc: 'Portfólio visual impactante, pacotes de serviço e agendamento.',
+    color: '#0D9488',
+    bg: '#F0FDFA',
+  },
+  {
+    icon: Coffee,
+    name: 'Cafeteria & Padaria',
+    desc: 'Cardápio online, encomendas e programa de fidelidade.',
+    color: '#92400E',
+    bg: '#FFFBEB',
+  },
+  {
+    icon: Briefcase,
+    name: 'Escritório & Consultoria',
+    desc: 'Site institucional profissional com cases, blog e captação de leads.',
+    color: '#1E40AF',
+    bg: '#EFF6FF',
+  },
+  {
+    icon: Music,
+    name: 'Estúdio & Entretenimento',
+    desc: 'Agenda de eventos, reservas online e galeria de mídia.',
+    color: '#BE185D',
+    bg: '#FDF2F8',
+  },
+]

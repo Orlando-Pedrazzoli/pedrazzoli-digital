@@ -1,0 +1,51 @@
+/* src/styles/index.css  (ou src/index.css) */
+
+@import "tailwindcss";
+
+/* Definição de tokens do tema (cores, fontes, etc.)
+   - Use --color-* para cores → gera utilities como bg-primary, text-primary, etc.
+   - Use oklch() para cores modernas e acessíveis
+*/
+@theme {
+  --color-background: oklch(0.12 0.05 240);     /* dark bg */
+  --color-surface:    oklch(0.14 0.04 240);     /* cards / panels */
+  --color-primary:    oklch(0.68 0.15 145);     /* verde #16A34A aproximado */
+  --color-primary-dark: oklch(0.58 0.14 145);
+  --color-text:       oklch(0.95 0.02 240);     /* texto principal claro */
+  --color-text-muted: oklch(0.75 0.02 240);
+  --color-border:     oklch(0.2 0.03 240);
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+}
+
+/* Dark mode via class .dark (toggle manual)
+   - Use isso se você tem um botão de tema (light/dark)
+   - Se for só prefers-color-scheme, pode remover este bloco
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Estilos base (aplicados globalmente) */
+@layer base {
+  :root {
+    @apply bg-[--color-background] text-[--color-text] font-sans;
+  }
+
+  body {
+    @apply min-h-screen antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+
+  /* Opcional: melhora legibilidade em links */
+  a {
+    @apply text-[--color-primary] hover:underline;
+  }
+}
+
+/* Utilitários custom (ex: .card) */
+@utility card {
+  @apply bg-[--color-surface] rounded-xl border border-[--color-border] shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+}
