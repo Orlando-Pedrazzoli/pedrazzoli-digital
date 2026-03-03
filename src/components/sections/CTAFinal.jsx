@@ -4,10 +4,10 @@ import FadeIn from '@/components/ui/FadeIn';
 import Button from '@/components/ui/Button';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
 
-// EmailJS config — preencha com seus dados (https://www.emailjs.com)
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+// EmailJS config via .env (VITE_ prefix required)
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const businessOptions = [
   'Loja Online / E-Commerce',
@@ -43,19 +43,15 @@ export default function CTAFinal() {
 
     try {
       const emailjs = await import('@emailjs/browser');
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          phone: form.phone || 'Não informado',
-          business_type: form.business || 'Não informado',
-          message: form.message,
-          to_email: 'pedrazzoliorlando@gmail.com',
-        },
-        EMAILJS_PUBLIC_KEY,
-      );
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: form.name,
+        from_email: form.email,
+        phone: form.phone || 'Não informado',
+        business_type: form.business || 'Não informado',
+        message: form.message,
+        to_email: 'pedrazzoliorlando@gmail.com',
+      });
       setStatus('success');
       setForm(initialForm);
       setTimeout(() => setStatus('idle'), 5000);
