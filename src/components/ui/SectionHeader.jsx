@@ -10,12 +10,12 @@ export default function SectionHeader({ label, title, description, center = true
           </p>
         )}
         <h2
-          className="font-display text-[clamp(30px,4.5vw,48px)] font-normal text-zinc-900 dark:text-zinc-100 leading-[1.15] mb-4 [&>em]:italic [&>em]:text-green-600 dark:[&>em]:text-green-400 [&>em]:not-italic"
+          className="font-display text-[clamp(30px,4.5vw,48px)] font-normal text-zinc-900 dark:text-zinc-100 leading-[1.15] mb-4 [&>em]:italic [&>em]:text-green-600 dark:[&>em]:text-green-400"
           style={{ fontStyle: 'normal' }}
           dangerouslySetInnerHTML={{ __html: title }}
         />
         {description && (
-          <p className={`text-base text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-[560px] ${center ? 'mx-auto' : ''}`}>
+          <p className={`text-base text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-140 ${center ? 'mx-auto' : ''}`}>
             {description}
           </p>
         )}

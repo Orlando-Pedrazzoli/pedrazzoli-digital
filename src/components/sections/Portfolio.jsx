@@ -8,16 +8,16 @@ import { getWhatsAppUrl } from '@/utils/whatsapp'
 export default function Portfolio() {
   return (
     <section id="portfolio" className="py-24 px-6 bg-[#F8F7F4] dark:bg-[#0C0C0F]">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-300 mx-auto">
         <SectionHeader
           label="Portfólio"
           title='Projeto <em>real</em>, resultado real.'
         />
 
         <FadeIn delay={100}>
-          <div className="rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 max-w-[960px] mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+          <div className="rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 max-w-240 mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
             {/* Banner */}
-            <div className="h-[280px] bg-gradient-to-br from-zinc-900 via-emerald-900 to-green-600 flex flex-col items-center justify-center relative px-6 text-center">
+            <div className="h-70 bg-linear-to-br from-zinc-900 via-emerald-900 to-green-600 flex flex-col items-center justify-center relative px-6 text-center">
               <div className="absolute inset-0 opacity-10"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='white'/%3E%3C/svg%3E")`, backgroundRepeat: 'repeat' }} />
               <span className="relative font-display text-[clamp(28px,4vw,40px)] text-white">{portfolioMain.name}</span>
@@ -54,7 +54,7 @@ export default function Portfolio() {
         {/* Next project */}
         <FadeIn delay={200}>
           <div className="flex justify-center mt-10">
-            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-7 text-center max-w-[400px] transition-all duration-300 hover:border-green-600 dark:hover:border-green-500 hover:shadow-[0_8px_32px_rgba(22,163,74,0.06)] hover:-translate-y-1">
+            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-7 text-center max-w-100 transition-all duration-300 hover:border-green-600 dark:hover:border-green-500 hover:shadow-[0_8px_32px_rgba(22,163,74,0.06)] hover:-translate-y-1">
               <div className="w-13 h-13 rounded-[14px] bg-sky-50 dark:bg-sky-900/20 flex items-center justify-center mx-auto mb-3.5">
                 <Rocket size={24} className="text-sky-600 dark:text-sky-400" />
               </div>

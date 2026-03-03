@@ -1,11 +1,12 @@
 export const siteConfig = {
   name: 'OP Digital',
   tagline: 'Sites e Lojas Online Profissionais',
-  description: 'Desenvolvimento de sites, lojas online e sistemas sob medida para seu negócio. Tecnologia de ponta com preço acessível.',
+  description:
+    'Desenvolvimento de sites, lojas online e sistemas sob medida para seu negócio. Tecnologia de ponta com preço acessível.',
   url: 'https://opdigital.com.br',
-  
+
   contact: {
-    whatsapp: '5511999999999', // TODO: Trocar pelo número real
+    whatsapp: '351912164220',
     email: 'contato@opdigital.com.br',
     instagram: '@opdigital',
   },
@@ -21,4 +22,4 @@ export const siteConfig = {
     titleTemplate: '%s | OP Digital',
     ogImage: '/og-image.jpg',
   },
-}
+};

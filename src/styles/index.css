@@ -1,22 +1,23 @@
 /* src/styles/index.css  (ou src/index.css) */
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Definição de tokens do tema (cores, fontes, etc.)
    - Use --color-* para cores → gera utilities como bg-primary, text-primary, etc.
    - Use oklch() para cores modernas e acessíveis
 */
 @theme {
-  --color-background: oklch(0.12 0.05 240);     /* dark bg */
-  --color-surface:    oklch(0.14 0.04 240);     /* cards / panels */
-  --color-primary:    oklch(0.68 0.15 145);     /* verde #16A34A aproximado */
+  --color-background: oklch(0.12 0.05 240); /* dark bg */
+  --color-surface: oklch(0.14 0.04 240); /* cards / panels */
+  --color-primary: oklch(0.68 0.15 145); /* verde #16A34A aproximado */
   --color-primary-dark: oklch(0.58 0.14 145);
-  --color-text:       oklch(0.95 0.02 240);     /* texto principal claro */
+  --color-text: oklch(0.95 0.02 240); /* texto principal claro */
   --color-text-muted: oklch(0.75 0.02 240);
-  --color-border:     oklch(0.2 0.03 240);
+  --color-border: oklch(0.2 0.03 240);
 
-  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
 }
 
 /* Dark mode via class .dark (toggle manual)
@@ -35,7 +36,8 @@
     @apply min-h-screen antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2 {
     @apply font-serif tracking-tight;
   }
 
@@ -48,4 +50,43 @@
 /* Utilitários custom (ex: .card) */
 @utility card {
   @apply bg-[--color-surface] rounded-xl border border-[--color-border] shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+}
+
+/* ── Animações custom ── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes float-delayed {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes pulse-wa {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+@utility animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+@utility animate-float-delayed {
+  animation: float-delayed 3.5s ease-in-out 0.5s infinite;
+}
+@utility animate-pulse-wa {
+  animation: pulse-wa 2s ease-in-out infinite;
 }

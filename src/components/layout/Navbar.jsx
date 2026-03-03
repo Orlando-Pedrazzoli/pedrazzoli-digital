@@ -38,10 +38,10 @@ export default function Navbar() {
           : 'bg-transparent'
         }
       `}>
-        <div className="max-w-[1200px] mx-auto h-[68px] flex items-center justify-between">
+        <div className="max-w-300 mx-auto h-17 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 no-underline">
-            <div className="w-[34px] h-[34px] flex items-center justify-center">
+            <div className="w-8.5 h-8.5 flex items-center justify-center">
   <img
     src="/favicon.png"
     alt="OP Digital Logo"
@@ -80,7 +80,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[1001] p-6 pt-20 flex flex-col gap-1 md:hidden bg-white dark:bg-zinc-950">
+        <div className="fixed inset-0 z-1001 p-6 pt-20 flex flex-col gap-1 md:hidden bg-white dark:bg-zinc-950">
           <button onClick={() => setMobileOpen(false)}
             className="absolute top-5 right-5 bg-transparent border-none cursor-pointer" aria-label="Fechar menu">
             <X size={26} className="text-zinc-900 dark:text-zinc-100" />
