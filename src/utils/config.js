@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: 'OP Create',
+  name: 'Pedrazzoli Digital',
   tagline: 'Sites e Lojas Online Profissionais',
   description:
     'Desenvolvimento de sites, lojas online e sistemas sob medida para seu negócio. Tecnologia moderna, código próprio e feito para converter.',
-  url: 'https://opcreate.com',
+  url: 'https://pedrazzolidigital.com',
 
   contact: {
     whatsapp: '351912164220',
@@ -18,8 +18,8 @@ export const siteConfig = {
   },
 
   seo: {
-    defaultTitle: 'OP Create | Sites e Lojas Online Profissionais',
-    titleTemplate: '%s | OP Create',
+    defaultTitle: 'Pedrazzoli Digital | Sites e Lojas Online Profissionais',
+    titleTemplate: '%s | Pedrazzoli Digital',
     ogImage: '/og-image.jpg',
   },
 };
