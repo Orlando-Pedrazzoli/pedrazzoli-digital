@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Outer hexagon -->
+  <path d="M256 20 L460 138 L460 374 L256 492 L52 374 L52 138 Z" 
+        fill="none" stroke="#22c55e" stroke-width="52" stroke-linejoin="round"/>
+  <!-- Inner arrow/play -->
+  <path d="M200 170 L340 256 L200 342 Z" 
+        fill="#22c55e" stroke="#22c55e" stroke-width="16" stroke-linejoin="round"/>
+  <!-- Arrow tip extension -->
+  <line x1="310" y1="256" x2="370" y2="256" 
+        stroke="#22c55e" stroke-width="48" stroke-linecap="round"/>
+</svg>
