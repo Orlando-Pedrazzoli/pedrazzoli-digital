@@ -51,12 +51,14 @@ export default function Features() {
         <div className='grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-5'>
           {features.map((f, i) => (
             <FadeIn key={f.title} delay={i * 50}>
-              <div className='p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 h-full transition-all duration-300 hover:border-green-600 dark:hover:border-green-500 hover:shadow-[0_8px_28px_rgba(22,163,74,0.06)] dark:hover:shadow-[0_8px_28px_rgba(22,163,74,0.1)] hover:-translate-y-1'>
-                <f.icon
-                  size={22}
-                  className='text-green-600 dark:text-green-400 mb-3.5'
-                />
-                <h3 className='text-[15px] font-bold text-zinc-900 dark:text-zinc-100 mb-1.5'>
+              <div className='group p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 h-full transition-all duration-400 hover:border-green-600/50 dark:hover:border-green-500/50 hover:shadow-[0_12px_36px_rgba(22,163,74,0.08)] dark:hover:shadow-[0_12px_36px_rgba(22,163,74,0.12)] hover:-translate-y-1.5'>
+                <div className='w-10 h-10 rounded-xl bg-green-50 dark:bg-green-900/20 flex items-center justify-center mb-3.5 transition-all duration-400 group-hover:scale-110 group-hover:bg-green-100 dark:group-hover:bg-green-900/35 group-hover:rotate-6'>
+                  <f.icon
+                    size={20}
+                    className='text-green-600 dark:text-green-400'
+                  />
+                </div>
+                <h3 className='text-[15px] font-bold text-zinc-900 dark:text-zinc-100 mb-1.5 transition-colors duration-300 group-hover:text-green-600 dark:group-hover:text-green-400'>
                   {f.title}
                 </h3>
                 <p className='text-[13px] leading-relaxed text-zinc-500 dark:text-zinc-400'>

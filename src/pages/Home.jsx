@@ -4,13 +4,17 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 
 import Hero from '@/components/sections/Hero';
+import TechStack from '@/components/sections/TechStack';
 import Portfolio from '@/components/sections/Portfolio';
+import Testimonials from '@/components/sections/Testimonials';
+import AboutMe from '@/components/sections/AboutMe';
 import Process from '@/components/sections/Process';
 import BusinessTypes from '@/components/sections/BusinessTypes';
 import Features from '@/components/sections/Features';
 import Plans from '@/components/sections/Plans';
 import FAQ from '@/components/sections/FAQ';
 import CTAFinal from '@/components/sections/CTAFinal';
+import CTABanner from '@/components/ui/CTABanner';
 
 export default function Home() {
   return (
@@ -21,19 +25,51 @@ export default function Home() {
       <main>
         {/* 1. Promessa forte */}
         <Hero />
+
+        {/* 1.5 Tech Stack — credibilidade técnica imediata */}
+        <TechStack />
+
         {/* 2. Prova social imediata — credibilidade antes de tudo */}
         <Portfolio />
-        {/* 3. Como funciona — simplicidade do processo */}
+
+        {/* 2.5 CTA intermediário — após ver os projetos */}
+        <CTABanner
+          text='Quer ver seu negócio com resultados assim?'
+          buttonText='Falar sobre meu projeto'
+          message='Olá! Vi o portfólio e quero conversar sobre meu projeto.'
+          variant='green'
+        />
+
+        {/* 3. Depoimentos — prova social reforçada */}
+        <Testimonials />
+
+        {/* 4. Sobre mim — confiança pessoal */}
+        <AboutMe />
+
+        {/* 5. Como funciona — simplicidade do processo */}
         <Process />
-        {/* 4. Soluções por segmento — identificação */}
+
+        {/* 5.5 CTA intermediário — após entender o processo */}
+        <CTABanner
+          text='Pronto para o primeiro passo?'
+          buttonText='Agendar Conversa'
+          message='Olá! Quero agendar uma conversa sobre meu projeto.'
+          variant='light'
+        />
+
+        {/* 6. Soluções por segmento — identificação */}
         <BusinessTypes />
-        {/* 5. Funcionalidades — justificativa técnica */}
+
+        {/* 7. Funcionalidades — justificativa técnica */}
         <Features />
-        {/* 6. Planos — decisão de investimento */}
+
+        {/* 8. Planos — decisão de investimento */}
         <Plans />
-        {/* 7. FAQ — eliminar objeções */}
+
+        {/* 9. FAQ — eliminar objeções */}
         <FAQ />
-        {/* 8. CTA final — conversão */}
+
+        {/* 10. CTA final — conversão */}
         <CTAFinal />
       </main>
 

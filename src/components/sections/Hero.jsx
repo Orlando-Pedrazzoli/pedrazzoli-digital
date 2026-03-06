@@ -6,7 +6,7 @@ import { portfolioMain } from '@/data/portfolio';
 
 const stats = [
   { value: '100%', label: 'Projetos entregues' },
-  { value: '3+', label: 'Anos de experiência' },
+  { value: '5+', label: 'Anos de experiência' },
   { value: '0', label: 'Templates usados' },
 ];
 

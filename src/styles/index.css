@@ -81,6 +81,16 @@
   }
 }
 
+/* Infinite horizontal scroll for tech stack */
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @utility animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -89,4 +99,7 @@
 }
 @utility animate-pulse-wa {
   animation: pulse-wa 2s ease-in-out infinite;
+}
+@utility animate-scroll-x {
+  animation: scroll-x 10s linear infinite;
 }
