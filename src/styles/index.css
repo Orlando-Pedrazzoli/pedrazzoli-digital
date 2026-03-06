@@ -101,5 +101,27 @@
   animation: pulse-wa 2s ease-in-out infinite;
 }
 @utility animate-scroll-x {
-  animation: scroll-x 10s linear infinite;
+  animation: scroll-x 30s linear infinite;
+}
+
+/* Cookie banner animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeScale {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

@@ -1,8 +1,8 @@
-import { Zap, ArrowRight, TrendingUp, CreditCard, Package } from 'lucide-react';
+import { Zap, ArrowRight } from 'lucide-react';
 import FadeIn from '@/components/ui/FadeIn';
 import Button from '@/components/ui/Button';
+import OrbitingSkills from '@/components/ui/OrbitingSkills';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
-import { portfolioMain } from '@/data/portfolio';
 
 const stats = [
   { value: '100%', label: 'Projetos entregues' },
@@ -81,115 +81,9 @@ export default function Hero() {
           </FadeIn>
         </div>
 
-        {/* Right — Store mockup */}
+        {/* Right — Orbiting Skills */}
         <FadeIn delay={200} className='flex-[1_1_420px] flex justify-center'>
-          <div className='relative w-full max-w-120'>
-            <div className='bg-white dark:bg-zinc-900 rounded-[20px] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.08)] dark:shadow-[0_40px_80px_rgba(0,0,0,0.4)] ring-1 ring-black/3 dark:ring-white/6'>
-              {/* Browser chrome */}
-              <div className='px-4 py-2.5 bg-zinc-50 dark:bg-zinc-800 flex items-center gap-2 border-b border-zinc-100 dark:border-zinc-700'>
-                <div className='flex gap-1.25'>
-                  {['#FF5F57', '#FFBD2E', '#28CA41'].map(c => (
-                    <div
-                      key={c}
-                      className='w-2.25 h-2.25 rounded-full'
-                      style={{ background: c }}
-                    />
-                  ))}
-                </div>
-                <div className='flex-1 bg-white dark:bg-zinc-900 rounded-md px-3 py-1 text-[11px] text-zinc-400 text-center border border-zinc-100 dark:border-zinc-700'>
-                  www.elitesurfing.com.br
-                </div>
-              </div>
-
-              {/* Banner */}
-              <div className='h-37.5 bg-linear-to-br from-zinc-900 via-green-900 to-green-600 flex flex-col items-center justify-center gap-1'>
-                <span className='text-white text-lg font-bold tracking-[2px]'>
-                  ELITE SURFING
-                </span>
-                <span className='text-white/70 text-[11px]'>
-                  Acessórios de Surf • Frete para Todo Brasil
-                </span>
-              </div>
-
-              {/* Category pills */}
-              <div className='flex gap-1.5 px-3.5 py-2.5 overflow-x-auto bg-white dark:bg-zinc-900'>
-                {portfolioMain.categories.slice(0, 5).map(c => (
-                  <span
-                    key={c}
-                    className='px-3 py-1 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-[10px] font-semibold whitespace-nowrap'
-                  >
-                    {c}
-                  </span>
-                ))}
-              </div>
-
-              {/* Product grid */}
-              <div className='grid grid-cols-2 gap-2.5 p-3.5 pb-4 bg-white dark:bg-zinc-900'>
-                {portfolioMain.mockProducts.map((p, i) => (
-                  <div
-                    key={i}
-                    className='rounded-[10px] border border-zinc-100 dark:border-zinc-800 overflow-hidden'
-                  >
-                    <div
-                      className='h-17.5 flex items-center justify-center'
-                      style={{
-                        background: `hsl(${140 + i * 25}, 18%, ${90 - i * 2}%)`,
-                      }}
-                    >
-                      <Package
-                        size={20}
-                        style={{ color: `hsl(${140 + i * 25}, 30%, 60%)` }}
-                      />
-                    </div>
-                    <div className='p-2 bg-white dark:bg-zinc-900'>
-                      <div className='text-[10px] text-zinc-400 mb-0.5'>
-                        {p.cat}
-                      </div>
-                      <div className='text-[11px] font-semibold text-zinc-900 dark:text-zinc-100 mb-0.5'>
-                        {p.name}
-                      </div>
-                      <div className='text-xs font-bold text-green-600 dark:text-green-400'>
-                        {p.price}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Floating badges */}
-            <div className='absolute top-10 -right-5 bg-white dark:bg-zinc-800 rounded-[14px] px-4 py-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.4)] flex items-center gap-2.5 animate-float'>
-              <div className='w-8 h-8 rounded-lg bg-green-50 dark:bg-green-900/30 flex items-center justify-center'>
-                <TrendingUp
-                  size={16}
-                  className='text-green-600 dark:text-green-400'
-                />
-              </div>
-              <div>
-                <div className='text-[13px] font-extrabold text-green-600 dark:text-green-400'>
-                  5% OFF
-                </div>
-                <div className='text-[10px] text-zinc-400'>
-                  PIX em toda loja
-                </div>
-              </div>
-            </div>
-
-            <div className='absolute bottom-5 -left-4 bg-white dark:bg-zinc-800 rounded-[14px] px-4 py-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.4)] flex items-center gap-2.5 animate-float-delayed'>
-              <div className='w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center'>
-                <CreditCard
-                  size={16}
-                  className='text-amber-600 dark:text-amber-400'
-                />
-              </div>
-              <div>
-                <div className='text-[13px] font-extrabold text-amber-600 dark:text-amber-400'>
-                  12x sem juros
-                </div>
-                <div className='text-[10px] text-zinc-400'>no cartão</div>
-              </div>
-            </div>
-          </div>
+          <OrbitingSkills />
         </FadeIn>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { Code, Menu, X } from 'lucide-react';
 import { siteConfig } from '@/utils/config';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
@@ -17,6 +18,9 @@ const navLinks = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -30,6 +34,21 @@ export default function Navbar() {
       document.body.style.overflow = '';
     };
   }, [mobileOpen]);
+
+  // Handle nav link clicks — navigate to home first if on another page
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMobileOpen(false);
+
+    if (isHome) {
+      // Already on home — just scroll to section
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Navigate to home, then scroll after render
+      navigate('/' + href);
+    }
+  };
 
   return (
     <>
@@ -45,7 +64,7 @@ export default function Navbar() {
       >
         <div className='max-w-300 mx-auto h-17 flex items-center justify-between'>
           {/* Logo */}
-          <a href='#' className='flex items-center gap-2.5 no-underline'>
+          <Link to='/' className='flex items-center gap-2.5 no-underline'>
             <div className='w-8.5 h-8.5 flex items-center justify-center'>
               <img
                 src='/favicon.png'
@@ -56,14 +75,15 @@ export default function Navbar() {
             <span className='font-display text-[22px] text-zinc-900 dark:text-zinc-100'>
               {siteConfig.name}
             </span>
-          </a>
+          </Link>
 
           {/* Desktop */}
           <div className='hidden md:flex items-center gap-7'>
             {navLinks.map(link => (
               <a
                 key={link.href}
-                href={link.href}
+                href={isHome ? link.href : `/${link.href}`}
+                onClick={e => handleNavClick(e, link.href)}
                 className='text-sm text-zinc-500 dark:text-zinc-400 no-underline font-medium hover:text-green-600 dark:hover:text-green-400 transition-colors'
               >
                 {link.label}
@@ -108,8 +128,8 @@ export default function Navbar() {
           {navLinks.map(link => (
             <a
               key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
+              href={isHome ? link.href : `/${link.href}`}
+              onClick={e => handleNavClick(e, link.href)}
               className='text-lg font-semibold text-zinc-900 dark:text-zinc-100 no-underline py-3 border-b border-zinc-100 dark:border-zinc-800'
             >
               {link.label}
