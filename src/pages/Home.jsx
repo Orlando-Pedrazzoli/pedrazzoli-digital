@@ -2,12 +2,12 @@ import SEO from '@/components/seo/SEO';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
-
 import Hero from '@/components/sections/Hero';
 import TechStack from '@/components/sections/TechStack';
 import Portfolio from '@/components/sections/Portfolio';
 import Testimonials from '@/components/sections/Testimonials';
 import AboutMe from '@/components/sections/AboutMe';
+import WorldMap from '@/components/sections/WorldMap';
 import Process from '@/components/sections/Process';
 import BusinessTypes from '@/components/sections/BusinessTypes';
 import Features from '@/components/sections/Features';
@@ -45,6 +45,9 @@ export default function Home() {
 
         {/* 4. Sobre mim — confiança pessoal */}
         <AboutMe />
+
+        {/* 4.5 Mapa — alcance global */}
+        <WorldMap />
 
         {/* 5. Como funciona — simplicidade do processo */}
         <Process />
