@@ -296,3 +296,144 @@
     --ring: oklch(0.68 0.15 145);
   }
 }
+/* ══════════════════════════════════════════════
+   ETHEREAL HERO — CSS
+   Colar no final do src/styles/index.css
+   (substituir o bloco anterior do ethereal)
+   ══════════════════════════════════════════════ */
+
+.ethereal-hero {
+  position: relative;
+  width: 100%;
+  background: #0a0a0a;
+}
+
+/* Sticky wrapper — canvas stays in view while scrolling through sections,
+   then naturally scrolls away when ethereal-hero ends */
+.ethereal-canvas-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  margin-bottom: -100vh; /* overlap so sections sit on top */
+}
+
+.ethereal-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Scroll progress */
+.ethereal-progress {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  width: 2px;
+  height: 120px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.ethereal-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #22c55e, #4ade80);
+  transform-origin: top;
+  transform: scaleY(0);
+  border-radius: 1px;
+}
+
+/* Sections */
+.ethereal-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Last section — shorter, no empty scroll below */
+.ethereal-section--last {
+  min-height: 60vh;
+  padding-bottom: 6rem;
+}
+
+.ethereal-section-content {
+  padding: 0 clamp(2rem, 8vw, 8rem);
+  max-width: 700px;
+}
+
+.ethereal-section .section-headline {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.ethereal-section .section-subheadline {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 300;
+  color: rgba(74, 222, 128, 0.8);
+  margin: 0.5rem 0 0 0;
+  letter-spacing: 0.05em;
+}
+
+.ethereal-section .section-body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin: 1.5rem 0 0 0;
+  max-width: 480px;
+}
+
+/* Loading */
+.ethereal-loading {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.ethereal-loading.ethereal-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.ethereal-loading-text {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation: ethereal-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes ethereal-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}

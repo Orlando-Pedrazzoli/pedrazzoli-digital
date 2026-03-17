@@ -2,7 +2,7 @@ import SEO from '@/components/seo/SEO';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
-import Hero from '@/components/sections/Hero';
+import EtherealHero from '@/components/sections/EtherealHero';
 import TechStack from '@/components/sections/TechStack';
 import Portfolio from '@/components/sections/Portfolio';
 import Testimonials from '@/components/sections/Testimonials';
@@ -21,61 +21,75 @@ export default function Home() {
     <>
       <SEO />
       <Navbar />
-
       <main>
-        {/* 1. Promessa forte */}
-        <Hero />
+        {/* ─────────────────────────────────────────────
+            ETHEREAL HERO — esfera 3D com scroll storytelling
+            O canvas usa position:sticky, então ele "gruda"
+            no viewport enquanto o user faz scroll pelas sections.
+            Quando o container .ethereal-hero acaba, o canvas
+            sobe junto e o conteúdo abaixo aparece.
+        ───────────────────────────────────────────── */}
+        <EtherealHero />
 
-        {/* 1.5 Tech Stack — credibilidade técnica imediata */}
-        <TechStack />
+        {/* ─────────────────────────────────────────────
+            CONTEÚDO PRINCIPAL
+            Este wrapper precisa de:
+            - relative + z-20 → fica acima do canvas sticky do Ethereal
+            - bg com cor sólida → tapa visualmente o canvas por trás
+            Sem isso, o canvas transparente do Three.js ficaria
+            visível por baixo dos componentes seguintes.
+        ───────────────────────────────────────────── */}
+        <div className='relative z-20 bg-[#F8F7F4] dark:bg-[#0C0C0F]'>
+          {/* 1.5 Tech Stack — credibilidade técnica imediata */}
+          <TechStack />
 
-        {/* 2. Prova social imediata — credibilidade antes de tudo */}
-        <Portfolio />
+          {/* 2. Prova social imediata */}
+          <Portfolio />
 
-        {/* 2.5 CTA intermediário — após ver os projetos */}
-        <CTABanner
-          text='Quer ver seu negócio com resultados assim?'
-          buttonText='Falar sobre meu projeto'
-          message='Olá! Vi o portfólio e quero conversar sobre meu projeto.'
-          variant='green'
-        />
+          {/* 2.5 CTA intermediário — após ver os projetos */}
+          <CTABanner
+            text='Quer ver seu negócio com resultados assim?'
+            buttonText='Falar sobre meu projeto'
+            message='Olá! Vi o portfólio e quero conversar sobre meu projeto.'
+            variant='green'
+          />
 
-        {/* 3. Depoimentos — prova social reforçada */}
-        <Testimonials />
+          {/* 3. Depoimentos */}
+          <Testimonials />
 
-        {/* 4. Sobre mim — confiança pessoal */}
-        <AboutMe />
+          {/* 4. Sobre mim */}
+          <AboutMe />
 
-        {/* 4.5 Mapa — alcance global */}
-        <VerticalTabs />
+          {/* 4.5 Serviços — Vertical Tabs */}
+          <VerticalTabs />
 
-        {/* 5. Como funciona — simplicidade do processo */}
-        <Process />
+          {/* 5. Como funciona */}
+          <Process />
 
-        {/* 5.5 CTA intermediário — após entender o processo */}
-        <CTABanner
-          text='Pronto para o primeiro passo?'
-          buttonText='Agendar Conversa'
-          message='Olá! Quero agendar uma conversa sobre meu projeto.'
-          variant='light'
-        />
+          {/* 5.5 CTA intermediário */}
+          <CTABanner
+            text='Pronto para o primeiro passo?'
+            buttonText='Agendar Conversa'
+            message='Olá! Quero agendar uma conversa sobre meu projeto.'
+            variant='light'
+          />
 
-        {/* 6. Soluções por segmento — identificação */}
-        <BusinessTypes />
+          {/* 6. Soluções por segmento */}
+          <BusinessTypes />
 
-        {/* 7. Funcionalidades — justificativa técnica */}
-        <Features />
+          {/* 7. Funcionalidades */}
+          <Features />
 
-        {/* 8. Planos — decisão de investimento */}
-        <Plans />
+          {/* 8. Planos */}
+          <Plans />
 
-        {/* 9. FAQ — eliminar objeções */}
-        <FAQ />
+          {/* 9. FAQ */}
+          <FAQ />
 
-        {/* 10. CTA final — conversão */}
-        <CTAFinal />
+          {/* 10. CTA final */}
+          <CTAFinal />
+        </div>
       </main>
-
       <Footer />
       <WhatsAppButton />
     </>
