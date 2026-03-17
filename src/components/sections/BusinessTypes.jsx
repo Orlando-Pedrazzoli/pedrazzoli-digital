@@ -1,6 +1,5 @@
 import FadeIn from '@/components/ui/FadeIn';
 import SectionHeader from '@/components/ui/SectionHeader';
-import HolographicCard from '@/components/ui/HolographicCard';
 import { businessTypes } from '@/data/businessTypes';
 import { getBusinessWhatsApp } from '@/utils/whatsapp';
 
@@ -14,23 +13,62 @@ export default function BusinessTypes() {
           description='Cada negócio tem necessidades diferentes. Desenvolvo soluções específicas para o seu segmento, com as funcionalidades que realmente fazem diferença no dia a dia.'
         />
 
-        <div className='grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5 md:gap-6 mt-12'>
-          {businessTypes.map((b, i) => (
-            <FadeIn key={b.name} delay={i * 50}>
-              <a
-                href={getBusinessWhatsApp(b.name)}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='no-underline block h-full'
-              >
-                <HolographicCard title={b.name} description={b.desc} />
-              </a>
-            </FadeIn>
-          ))}
-        </div>
+        <FadeIn>
+          <div className='flex justify-center items-center flex-wrap'>
+            {businessTypes.map(
+              ({ name, desc, gradientFrom, gradientTo }, idx) => (
+                <a
+                  key={idx}
+                  href={getBusinessWhatsApp(name)}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='no-underline'
+                >
+                  <div className='group relative w-[280px] h-[320px] m-[30px_20px] transition-all duration-500'>
+                    {/* Skewed gradient panels */}
+                    <span
+                      className='absolute top-0 left-[50px] w-1/2 h-full rounded-lg transform skew-x-[15deg] transition-all duration-500 group-hover:skew-x-0 group-hover:left-[20px] group-hover:w-[calc(100%-90px)]'
+                      style={{
+                        background: `linear-gradient(315deg, ${gradientFrom}, ${gradientTo})`,
+                      }}
+                    />
+                    <span
+                      className='absolute top-0 left-[50px] w-1/2 h-full rounded-lg transform skew-x-[15deg] blur-[30px] transition-all duration-500 group-hover:skew-x-0 group-hover:left-[20px] group-hover:w-[calc(100%-90px)]'
+                      style={{
+                        background: `linear-gradient(315deg, ${gradientFrom}, ${gradientTo})`,
+                      }}
+                    />
+
+                    {/* Animated blurs */}
+                    <span className='pointer-events-none absolute inset-0 z-10'>
+                      <span className='absolute top-0 left-0 w-0 h-0 rounded-lg opacity-0 bg-[rgba(255,255,255,0.1)] backdrop-blur-[10px] shadow-[0_5px_15px_rgba(0,0,0,0.08)] transition-all duration-100 animate-blob group-hover:top-[-50px] group-hover:left-[50px] group-hover:w-[100px] group-hover:h-[100px] group-hover:opacity-100' />
+                      <span className='absolute bottom-0 right-0 w-0 h-0 rounded-lg opacity-0 bg-[rgba(255,255,255,0.1)] backdrop-blur-[10px] shadow-[0_5px_15px_rgba(0,0,0,0.08)] transition-all duration-500 animate-blob animation-delay-1000 group-hover:bottom-[-50px] group-hover:right-[50px] group-hover:w-[100px] group-hover:h-[100px] group-hover:opacity-100' />
+                    </span>
+
+                    {/* Content */}
+                    <div className='relative z-20 left-0 p-[24px_30px] bg-[rgba(0,0,0,0.45)] backdrop-blur-[12px] shadow-lg rounded-lg text-white transition-all duration-500 group-hover:left-[-25px] group-hover:p-[40px_30px]'>
+                      <h2
+                        className='text-2xl font-bold mb-3'
+                        style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
+                      >
+                        {name}
+                      </h2>
+                      <p
+                        className='text-base leading-relaxed text-white/90'
+                        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}
+                      >
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ),
+            )}
+          </div>
+        </FadeIn>
 
         <FadeIn delay={300}>
-          <p className='text-center mt-12 text-sm text-zinc-500 dark:text-zinc-400'>
+          <p className='text-center mt-8 text-sm text-zinc-500 dark:text-zinc-400'>
             Não encontrou seu segmento?{' '}
             <a
               href={getBusinessWhatsApp('outro segmento')}
@@ -44,6 +82,16 @@ export default function BusinessTypes() {
           </p>
         </FadeIn>
       </div>
+
+      {/* Animations needed by the gradient cards */}
+      <style>{`
+        @keyframes blob {
+          0%, 100% { transform: translateY(10px); }
+          50% { transform: translate(-10px); }
+        }
+        .animate-blob { animation: blob 2s ease-in-out infinite; }
+        .animation-delay-1000 { animation-delay: -1s; }
+      `}</style>
     </section>
   );
 }
