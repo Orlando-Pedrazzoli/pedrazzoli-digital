@@ -308,15 +308,13 @@
   background: #0a0a0a;
 }
 
-/* Sticky wrapper — canvas stays in view while scrolling through sections,
-   then naturally scrolls away when ethereal-hero ends */
 .ethereal-canvas-wrapper {
   position: sticky;
   top: 0;
   width: 100%;
   height: 100vh;
   z-index: 1;
-  margin-bottom: -100vh; /* overlap so sections sit on top */
+  margin-bottom: -100vh;
 }
 
 .ethereal-canvas {
@@ -348,54 +346,58 @@
   border-radius: 1px;
 }
 
-/* Sections */
+/* Sections — CENTRADO como o componente original */
 .ethereal-section {
   position: relative;
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 10;
 }
 
-/* Last section — shorter, no empty scroll below */
 .ethereal-section--last {
   min-height: 60vh;
   padding-bottom: 6rem;
 }
 
 .ethereal-section-content {
-  padding: 0 clamp(2rem, 8vw, 8rem);
-  max-width: 700px;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 2rem;
 }
 
+/* Headline — grande e centrado sobre a esfera */
 .ethereal-section .section-headline {
   font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-size: clamp(4.5rem, 12vw, 10rem);
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 0.92;
   color: white;
   margin: 0;
   letter-spacing: -0.03em;
 }
 
+/* Subheadline — verde, abaixo do headline */
 .ethereal-section .section-subheadline {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
   font-weight: 300;
   color: rgba(74, 222, 128, 0.8);
-  margin: 0.5rem 0 0 0;
+  margin: 0.6rem 0 0 0;
   letter-spacing: 0.05em;
 }
 
+/* Body text — centrado com max-width */
 .ethereal-section .section-body {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.7;
-  margin: 1.5rem 0 0 0;
-  max-width: 480px;
+  margin: 1.5rem auto 0 auto;
+  max-width: 520px;
 }
 
 /* Loading */

@@ -46,14 +46,6 @@ export default function Home() {
           {/* 2. Prova social imediata */}
           <Portfolio />
 
-          {/* 2.5 CTA intermediário — após ver os projetos */}
-          <CTABanner
-            text='Quer ver seu negócio com resultados assim?'
-            buttonText='Falar sobre meu projeto'
-            message='Olá! Vi o portfólio e quero conversar sobre meu projeto.'
-            variant='green'
-          />
-
           {/* 3. Depoimentos */}
           <Testimonials />
 
