@@ -1,4 +1,4 @@
-import { Code, Mail, Phone, Instagram, Cookie } from 'lucide-react';
+import { Mail, Phone, Instagram, Cookie } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { siteConfig } from '@/utils/config';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
@@ -25,8 +25,12 @@ export default function Footer() {
           {/* Brand */}
           <div className='sm:col-span-2 lg:col-span-1'>
             <Link to='/' className='flex items-center gap-2 mb-4 no-underline'>
-              <div className='w-7 h-7 rounded-lg bg-green-600 flex items-center justify-center'>
-                <Code size={14} color='#fff' />
+              <div className='w-7 h-7 flex items-center justify-center'>
+                <img
+                  src='/logo-pedrazzoli.png'
+                  alt={`${siteConfig.name} Logo`}
+                  className='w-full h-full object-contain rounded-md'
+                />
               </div>
               <span className='font-display text-lg text-zinc-900 dark:text-zinc-100'>
                 {siteConfig.name}

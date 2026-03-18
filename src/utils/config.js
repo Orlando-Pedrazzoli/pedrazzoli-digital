@@ -8,7 +8,7 @@ export const siteConfig = {
   contact: {
     whatsapp: '351912164220',
     email: 'pedrazzoliorlando@gmail.com',
-    instagram: '@opcreate',
+    instagram: '@pedrazzolidigital',
   },
 
   owner: {
@@ -28,7 +28,7 @@ export const siteConfig = {
 
   // Social
   social: {
-    instagram: '@opcreate',
+    instagram: '@pedrazzolidigital',
   },
 
   // Geo-targeting Brasil

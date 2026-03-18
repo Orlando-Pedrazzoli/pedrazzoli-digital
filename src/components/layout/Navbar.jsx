@@ -65,13 +65,12 @@ export default function Navbar() {
         fixed top-0 left-0 right-0 z-50 px-6 transition-all duration-300
         ${
           scrolled
-            ? 'bg-[#F8F7F4]/92 dark:bg-[#0C0C0F]/92 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800'
+            ? 'bg-[#F8F7F4]/92 dark:bg-[#141735]/92 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800'
             : 'bg-transparent'
         }
       `}
       >
         <div className='max-w-300 mx-auto h-17 flex items-center justify-between'>
-          {/* Logo — scroll to top on home, navigate to home on other pages */}
           <Link
             to='/'
             onClick={handleLogoClick}
@@ -79,9 +78,9 @@ export default function Navbar() {
           >
             <div className='w-8.5 h-8.5 flex items-center justify-center'>
               <img
-                src='/favicon.png'
+                src='/logo-pedrazzoli.png'
                 alt={`${siteConfig.name} Logo`}
-                className='w-full h-full object-contain'
+                className='w-full h-full object-contain rounded-lg'
               />
             </div>
             <span className='font-display text-[22px] text-zinc-900 dark:text-zinc-100'>
@@ -89,7 +88,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop */}
           <div className='hidden md:flex items-center gap-7'>
             {navLinks.map(link =>
               link.type === 'page' ? (
@@ -127,7 +125,6 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile */}
           <div className='flex md:hidden items-center gap-3'>
             <ThemeToggle />
             <button
@@ -141,9 +138,8 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className='fixed inset-0 z-1001 p-6 pt-20 flex flex-col gap-1 md:hidden bg-white dark:bg-zinc-950'>
+        <div className='fixed inset-0 z-1001 p-6 pt-20 flex flex-col gap-1 md:hidden bg-white dark:bg-[#141735]'>
           <button
             onClick={() => setMobileOpen(false)}
             className='absolute top-5 right-5 bg-transparent border-none cursor-pointer'

@@ -116,24 +116,23 @@
     />
     <meta
       name="theme-color"
-      content="#111827"
+      content="#141735"
       media="(prefers-color-scheme: dark)"
     />
     <meta name="color-scheme" content="light dark" />
 
     <!-- ═══════════════════════════════════════════════ -->
-    <!-- FAVICONS + ÍCONES                               -->
+    <!-- FAVICONS + ÍCONES (novo logo)                   -->
     <!-- ═══════════════════════════════════════════════ -->
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- ═══════════════════════════════════════════════ -->
     <!-- MANIFEST (PWA)                                  -->
     <!-- ═══════════════════════════════════════════════ -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- ═══════════════════════════════════════════════ -->
     <!-- PRÉ-CONEXÕES + FONTES                          -->
@@ -156,7 +155,7 @@
         "@type": "Organization",
         "name": "Pedrazzoli Digital",
         "url": "https://pedrazzolidigital.com",
-        "logo": "https://pedrazzolidigital.com/icon-512.png",
+        "logo": "https://pedrazzolidigital.com/logo-pedrazzoli.png",
         "image": "https://pedrazzolidigital.com/og-image.jpg",
         "description": "Desenvolvimento de sites profissionais, lojas virtuais e sistemas sob medida. Código próprio, feito para converter.",
         "founder": {
@@ -181,7 +180,7 @@
         "@type": ["ProfessionalService", "LocalBusiness"],
         "name": "Pedrazzoli Digital",
         "url": "https://pedrazzolidigital.com",
-        "logo": "https://pedrazzolidigital.com/icon-512.png",
+        "logo": "https://pedrazzolidigital.com/logo-pedrazzoli.png",
         "image": "https://pedrazzolidigital.com/og-image.jpg",
         "description": "Desenvolvimento de sites profissionais, lojas virtuais e sistemas sob medida para empresas no Brasil e Portugal.",
         "telephone": "+351-912-164-220",
@@ -378,10 +377,6 @@
 
   <body class="antialiased">
     <div id="root">
-      <!--
-        Conteúdo estático para SEO (crawlers) — visualmente escondido,
-        substituído pelo React ao carregar. Usa sr-only pattern.
-      -->
       <div id="seo-fallback">
         <header>
           <nav aria-label="Navegação principal">
