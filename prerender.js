@@ -7,8 +7,14 @@
  * Uso: node prerender.js
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
-import { resolve, dirname } from 'path';
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+  statSync,
+} from 'fs';
+import { resolve, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 import { createServer } from 'http';
 
@@ -19,50 +25,62 @@ const PORT = 4173;
 // Todas as rotas do site
 const ROUTES = ['/', '/servicos', '/sobre', '/faq', '/privacidade', '/termos'];
 
-// Servidor estatico simples para servir o dist/
+// Servidor estatico que serve ficheiros reais do dist/
+// So faz fallback para index.html quando o ficheiro NAO existe
 function startServer() {
   return new Promise(resolvePromise => {
+    const mimeTypes = {
+      '.html': 'text/html',
+      '.js': 'application/javascript',
+      '.css': 'text/css',
+      '.json': 'application/json',
+      '.png': 'image/png',
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
+      '.svg': 'image/svg+xml',
+      '.ico': 'image/x-icon',
+      '.woff2': 'font/woff2',
+      '.woff': 'font/woff',
+      '.txt': 'text/plain',
+      '.xml': 'application/xml',
+      '.webmanifest': 'application/manifest+json',
+    };
+
     const server = createServer((req, res) => {
-      let filePath = resolve(
-        DIST,
-        req.url === '/' ? 'index.html' : req.url.slice(1),
-      );
+      const urlPath = req.url.split('?')[0];
+      let filePath = resolve(DIST, urlPath.slice(1));
 
-      // Se nao encontra o ficheiro, serve index.html (SPA fallback)
-      if (!existsSync(filePath)) {
-        // Tenta com .html
-        if (existsSync(filePath + '.html')) {
-          filePath = filePath + '.html';
-        } else if (existsSync(resolve(filePath, 'index.html'))) {
-          filePath = resolve(filePath, 'index.html');
-        } else {
-          filePath = resolve(DIST, 'index.html');
-        }
-      }
-
-      try {
+      // Se o path aponta para um ficheiro real que existe, serve-o diretamente
+      if (existsSync(filePath) && statSync(filePath).isFile()) {
+        const ext = extname(filePath);
         const content = readFileSync(filePath);
-        const ext = filePath.split('.').pop();
-        const mimeTypes = {
-          html: 'text/html',
-          js: 'application/javascript',
-          css: 'text/css',
-          json: 'application/json',
-          png: 'image/png',
-          jpg: 'image/jpeg',
-          svg: 'image/svg+xml',
-          ico: 'image/x-icon',
-          woff2: 'font/woff2',
-          woff: 'font/woff',
-        };
         res.writeHead(200, {
           'Content-Type': mimeTypes[ext] || 'application/octet-stream',
         });
         res.end(content);
-      } catch {
-        res.writeHead(404);
-        res.end('Not found');
+        return;
       }
+
+      // Se e um directorio, tenta index.html dentro dele
+      if (existsSync(filePath) && statSync(filePath).isDirectory()) {
+        const indexFile = resolve(filePath, 'index.html');
+        if (existsSync(indexFile)) {
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.end(readFileSync(indexFile));
+          return;
+        }
+      }
+
+      // Fallback: serve o index.html principal (SPA behavior)
+      const indexHtml = resolve(DIST, 'index.html');
+      if (existsSync(indexHtml)) {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(readFileSync(indexHtml));
+        return;
+      }
+
+      res.writeHead(404);
+      res.end('Not found');
     });
 
     server.listen(PORT, () => {
@@ -96,7 +114,7 @@ async function prerender() {
 
     await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
 
-    // Aguarda um pouco para animacoes/lazy content
+    // Aguarda o React renderizar conteudo no #root
     await page
       .waitForFunction(
         () => {
@@ -113,12 +131,6 @@ async function prerender() {
 
     // Limpa atributos desnecessarios
     html = html.replace(/ data-reactroot=""/g, '');
-
-    // Remove o seo-fallback (ja nao e preciso, temos o conteudo real)
-    html = html.replace(
-      /<div id="seo-fallback">[\s\S]*?<\/div>\s*(?=<\/div>)/,
-      '',
-    );
 
     // Define o output path
     const outputDir = route === '/' ? DIST : resolve(DIST, route.slice(1));
