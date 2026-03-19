@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/utils/config';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
 import Button from '@/components/ui/Button';
-import ThemeToggle from '@/components/ui/ThemeToggle';
 
+/* ─── link config ─── */
 const navLinks = [
   { label: 'Portfólio', href: '#portfolio', type: 'anchor' },
   { label: 'Serviços', href: '/servicos', type: 'page' },
@@ -21,12 +21,14 @@ export default function Navbar() {
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
+  /* ─── scroll detection ─── */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  /* ─── lock body when mobile menu is open ─── */
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => {
@@ -34,22 +36,41 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  const handleAnchorClick = (e, href) => {
-    e.preventDefault();
+  /* ─── close mobile menu on route change ─── */
+  useEffect(() => {
     setMobileOpen(false);
+  }, [location.pathname]);
 
-    if (isHome) {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/' + href);
-    }
-  };
+  /* ─── close on Escape key ─── */
+  useEffect(() => {
+    const onKey = e => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
-  const handlePageClick = href => {
-    setMobileOpen(false);
-    navigate(href);
-  };
+  const handleAnchorClick = useCallback(
+    (e, href) => {
+      e.preventDefault();
+      setMobileOpen(false);
+      if (isHome) {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/' + href);
+      }
+    },
+    [isHome, navigate],
+  );
+
+  const handlePageClick = useCallback(
+    href => {
+      setMobileOpen(false);
+      navigate(href);
+    },
+    [navigate],
+  );
 
   const handleLogoClick = e => {
     if (isHome) {
@@ -58,62 +79,88 @@ export default function Navbar() {
     }
   };
 
+  const isActive = link => {
+    if (link.type === 'page') return location.pathname === link.href;
+    if (link.type === 'anchor' && isHome) return false; // anchors don't get "active" state
+    return false;
+  };
+
   return (
     <>
+      {/* ════════════ NAVBAR ════════════ */}
       <nav
+        role='navigation'
+        aria-label='Navegação principal'
         className={`
-        fixed top-0 left-0 right-0 z-50 px-6 transition-all duration-300
-        ${
-          scrolled
-            ? 'bg-[#F8F7F4]/92 dark:bg-[#141735]/92 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800'
-            : 'bg-transparent'
-        }
-      `}
+          fixed top-0 inset-x-0 z-50 transition-all duration-300
+          ${
+            scrolled
+              ? 'bg-[#141735]/95 backdrop-blur-2xl border-b border-white/[0.06] shadow-lg shadow-black/20'
+              : 'bg-transparent'
+          }
+        `}
       >
-        <div className='max-w-300 mx-auto h-17 flex items-center justify-between'>
+        <div className='max-w-7xl mx-auto px-5 sm:px-8 h-[72px] flex items-center justify-between'>
+          {/* ── Logo ── */}
           <Link
             to='/'
             onClick={handleLogoClick}
-            className='flex items-center gap-2.5 no-underline'
+            className='flex items-center gap-3 no-underline group'
           >
-            <div className='w-8.5 h-8.5 flex items-center justify-center'>
+            <div className='w-9 h-9 flex-shrink-0 overflow-hidden rounded-lg transition-transform duration-200 group-hover:scale-105'>
               <img
                 src='/logo-pedrazzoli.png'
                 alt={`${siteConfig.name} Logo`}
-                className='w-full h-full object-contain rounded-lg'
+                className='w-full h-full object-contain'
+                width={36}
+                height={36}
               />
             </div>
-            <span className='font-display text-[22px] text-zinc-900 dark:text-zinc-100'>
+            <span className='font-sans text-xl font-bold text-white tracking-tight'>
               {siteConfig.name}
             </span>
           </Link>
 
-          <div className='hidden md:flex items-center gap-7'>
-            {navLinks.map(link =>
-              link.type === 'page' ? (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`text-sm no-underline font-medium transition-colors ${
-                    location.pathname === link.href
-                      ? 'text-green-600 dark:text-green-400'
-                      : 'text-zinc-500 dark:text-zinc-400 hover:text-green-600 dark:hover:text-green-400'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ) : (
+          {/* ── Desktop Links ── */}
+          <div className='hidden lg:flex items-center gap-1'>
+            {navLinks.map(link => {
+              const active = isActive(link);
+              const baseClass = `
+                relative px-3.5 py-2 text-[14px] font-medium rounded-lg
+                transition-colors duration-200 no-underline
+              `;
+
+              if (link.type === 'page') {
+                return (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`${baseClass} ${
+                      active
+                        ? 'text-green-400 bg-green-400/10'
+                        : 'text-zinc-400 hover:text-white hover:bg-white/[0.05]'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              }
+
+              return (
                 <a
                   key={link.href}
                   href={isHome ? link.href : `/${link.href}`}
                   onClick={e => handleAnchorClick(e, link.href)}
-                  className='text-sm text-zinc-500 dark:text-zinc-400 no-underline font-medium hover:text-green-600 dark:hover:text-green-400 transition-colors'
+                  className={`${baseClass} text-zinc-400 hover:text-white hover:bg-white/[0.05]`}
                 >
                   {link.label}
                 </a>
-              ),
-            )}
-            <ThemeToggle />
+              );
+            })}
+          </div>
+
+          {/* ── Desktop CTA ── */}
+          <div className='hidden lg:flex items-center'>
             <Button
               href={getWhatsAppUrl()}
               external
@@ -125,63 +172,130 @@ export default function Navbar() {
             </Button>
           </div>
 
-          <div className='flex md:hidden items-center gap-3'>
-            <ThemeToggle />
-            <button
-              onClick={() => setMobileOpen(true)}
-              className='bg-transparent border-none cursor-pointer p-1'
-              aria-label='Abrir menu'
-            >
-              <Menu size={24} className='text-zinc-900 dark:text-zinc-100' />
-            </button>
-          </div>
+          {/* ── Mobile Hamburger ── */}
+          <button
+            onClick={() => setMobileOpen(true)}
+            className='lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-white/[0.08] text-white cursor-pointer transition-colors hover:bg-white/[0.1]'
+            aria-label='Abrir menu'
+            aria-expanded={mobileOpen}
+            aria-controls='mobile-menu'
+          >
+            <Menu size={20} strokeWidth={2} />
+          </button>
         </div>
       </nav>
 
-      {mobileOpen && (
-        <div className='fixed inset-0 z-1001 p-6 pt-20 flex flex-col gap-1 md:hidden bg-white dark:bg-[#141735]'>
+      {/* ════════════ MOBILE MENU ════════════ */}
+
+      {/* Backdrop */}
+      <div
+        className={`
+          fixed inset-0 z-[998] bg-black/60 backdrop-blur-sm
+          transition-opacity duration-300 lg:hidden
+          ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+        `}
+        onClick={() => setMobileOpen(false)}
+        aria-hidden='true'
+      />
+
+      {/* Panel */}
+      <div
+        id='mobile-menu'
+        role='dialog'
+        aria-modal='true'
+        aria-label='Menu de navegação'
+        className={`
+          fixed top-0 right-0 z-[999] h-full w-full max-w-[340px]
+          bg-[#141735]/98 backdrop-blur-2xl
+          border-l border-white/[0.06]
+          transition-transform duration-300 ease-out lg:hidden
+          flex flex-col
+          ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}
+        `}
+      >
+        {/* Panel header */}
+        <div className='flex items-center justify-between px-6 h-[72px] border-b border-white/[0.06]'>
+          <span className='font-display text-base font-semibold text-white tracking-tight'>
+            Menu
+          </span>
           <button
             onClick={() => setMobileOpen(false)}
-            className='absolute top-5 right-5 bg-transparent border-none cursor-pointer'
+            className='flex items-center justify-center w-9 h-9 rounded-xl bg-white/[0.06] border border-white/[0.08] text-white cursor-pointer transition-colors hover:bg-white/[0.1]'
             aria-label='Fechar menu'
           >
-            <X size={26} className='text-zinc-900 dark:text-zinc-100' />
+            <X size={18} strokeWidth={2} />
           </button>
-          {navLinks.map(link =>
-            link.type === 'page' ? (
-              <button
-                key={link.href}
-                onClick={() => handlePageClick(link.href)}
-                className='text-lg font-semibold text-zinc-900 dark:text-zinc-100 text-left bg-transparent border-none cursor-pointer py-3 border-b border-zinc-100 dark:border-zinc-800'
-                style={{ borderBottom: '1px solid' }}
-              >
-                {link.label}
-              </button>
-            ) : (
-              <a
-                key={link.href}
-                href={isHome ? link.href : `/${link.href}`}
-                onClick={e => handleAnchorClick(e, link.href)}
-                className='text-lg font-semibold text-zinc-900 dark:text-zinc-100 no-underline py-3 border-b border-zinc-100 dark:border-zinc-800'
-              >
-                {link.label}
-              </a>
-            ),
-          )}
-          <div className='mt-6'>
-            <Button
-              href={getWhatsAppUrl()}
-              external
-              variant='primary'
-              size='lg'
-              whatsapp
-              fullWidth
-            >
-              Fale Comigo
-            </Button>
-          </div>
         </div>
-      )}
+
+        {/* Panel links */}
+        <nav
+          className='flex-1 overflow-y-auto px-4 py-4'
+          aria-label='Menu mobile'
+        >
+          <ul className='list-none m-0 p-0 flex flex-col gap-1'>
+            {navLinks.map((link, i) => {
+              const active = isActive(link);
+              const linkClass = `
+                flex items-center justify-between
+                px-4 py-3.5 rounded-xl text-[15px] font-medium
+                no-underline transition-all duration-200
+                ${
+                  active
+                    ? 'text-green-400 bg-green-400/10'
+                    : 'text-zinc-300 hover:text-white hover:bg-white/[0.05] active:bg-white/[0.08]'
+                }
+              `;
+
+              if (link.type === 'page') {
+                return (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={linkClass}
+                      style={{ animationDelay: `${i * 50}ms` }}
+                    >
+                      {link.label}
+                      <ArrowRight size={16} className='opacity-40' />
+                    </Link>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={link.href}>
+                  <a
+                    href={isHome ? link.href : `/${link.href}`}
+                    onClick={e => handleAnchorClick(e, link.href)}
+                    className={linkClass}
+                    style={{ animationDelay: `${i * 50}ms` }}
+                  >
+                    {link.label}
+                    <ArrowRight size={16} className='opacity-40' />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        {/* Panel footer — CTA */}
+        <div className='px-4 pb-8 pt-2 border-t border-white/[0.06]'>
+          <Button
+            href={getWhatsAppUrl()}
+            external
+            variant='primary'
+            size='lg'
+            whatsapp
+            fullWidth
+          >
+            Fale Comigo
+          </Button>
+          <p className='text-center text-xs text-zinc-500 mt-3'>
+            {siteConfig.email}
+          </p>
+        </div>
+      </div>
     </>
   );
 }
