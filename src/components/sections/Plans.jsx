@@ -58,11 +58,11 @@ export default function Plans() {
                 className={`
                 rounded-[20px] p-6 sm:p-9 h-full flex flex-col relative overflow-hidden
                 transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.3)]
-                bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100
+                bg-white dark:bg-[#1a2042] text-zinc-900 dark:text-zinc-100
                 ${
                   plan.highlight
                     ? 'border-2 border-green-600 dark:border-green-500 shadow-[0_8px_32px_rgba(22,163,74,0.10)] dark:shadow-[0_8px_32px_rgba(22,163,74,0.15)]'
-                    : 'border border-zinc-200 dark:border-zinc-800'
+                    : 'border border-zinc-200 dark:border-white/[0.08]'
                 }
               `}
               >
@@ -83,12 +83,12 @@ export default function Plans() {
                 {/* Price — responsive font size */}
                 <div className='mb-7'>
                   {plan.fromPrice && (
-                    <span className='text-[13px] text-zinc-400 dark:text-zinc-500'>
-                      a partir de{' '}
+                    <span className='block text-[13px] text-zinc-400 dark:text-zinc-500 mb-1'>
+                      a partir de
                     </span>
                   )}
                   <span
-                    className='text-green-600 dark:text-green-400 font-extrabold'
+                    className='text-green-600 dark:text-green-400 font-extrabold whitespace-nowrap'
                     style={{
                       fontSize: plan.fromPrice
                         ? 'clamp(32px, 8vw, 44px)'
@@ -100,7 +100,7 @@ export default function Plans() {
                 </div>
 
                 {/* Divider */}
-                <div className='border-t border-zinc-100 dark:border-zinc-800 pt-6 mb-6 flex-1'>
+                <div className='border-t border-zinc-100 dark:border-white/[0.06] pt-6 mb-6 flex-1'>
                   {plan.features.map(f => (
                     <div key={f} className='flex items-start gap-2.5 mb-3'>
                       <CheckCircle

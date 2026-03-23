@@ -13,7 +13,7 @@ export default function Sobre() {
         description='Conheça Orlando Pedrazzoli — Full Stack Developer com 10+ anos de experiência empreendedora e 3+ anos em desenvolvimento web.'
       />
       <Navbar />
-      <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#0C0C0F]'>
+      <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#131834]'>
         <div className='pt-20' />
         <AboutMe />
         <Process />

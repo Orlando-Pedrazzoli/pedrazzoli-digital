@@ -75,7 +75,7 @@ export default function CTAFinal() {
   return (
     <section id='contato' className='py-24 px-6 bg-[#F8F7F4] dark:bg-[#131834]'>
       <FadeIn>
-        <div className='max-w-220 mx-auto rounded-3xl py-16 px-8 md:px-14 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-[0_20px_60px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.3)] relative overflow-hidden'>
+        <div className='max-w-220 mx-auto rounded-3xl py-16 px-8 md:px-14 bg-white dark:bg-[#1a2042] border border-zinc-200 dark:border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.3)] relative overflow-hidden'>
           {/* BG decorations */}
           <div className='absolute -top-15 -right-15 w-55 h-55 rounded-full bg-green-600/8 dark:bg-green-600/12 pointer-events-none' />
           <div className='absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-amber-600/5 dark:bg-amber-600/8 pointer-events-none' />
@@ -95,7 +95,7 @@ export default function CTAFinal() {
               </p>
 
               {/* Direct contact highlight */}
-              <div className='mb-6 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700'>
+              <div className='mb-6 p-4 rounded-xl bg-zinc-50 dark:bg-[#212952] border border-zinc-200 dark:border-white/[0.08]'>
                 <p className='text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 mb-1'>
                   Você fala direto comigo.
                 </p>
@@ -183,7 +183,7 @@ export default function CTAFinal() {
                         <option
                           key={opt}
                           value={opt}
-                          className='bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white'
+                          className='bg-white dark:bg-[#1a2042] text-zinc-900 dark:text-white'
                         >
                           {opt}
                         </option>

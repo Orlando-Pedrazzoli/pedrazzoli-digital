@@ -14,7 +14,7 @@ export default function Servicos() {
         description='Desenvolvimento web, e-commerce, UI/UX design, branding, SEO e suporte contínuo. Conheça todos os serviços da Pedrazzoli Digital.'
       />
       <Navbar />
-      <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#0C0C0F]'>
+      <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#131834]'>
         <div className='pt-20' />
         <VerticalTabs />
         <Features />

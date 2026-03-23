@@ -18,8 +18,9 @@
    - Use oklch() para cores modernas e acessíveis
 */
 @theme {
-  --color-background: oklch(0.18 0.05 250); /* dark bg — #171d3a */
-  --color-surface: oklch(0.21 0.05 250); /* cards / panels */
+  --color-background: oklch(0.16 0.05 250); /* dark bg — #171d3a */
+  --color-surface: oklch(0.21 0.05 250); /* cards / panels — #1e2545 */
+  --color-surface-elevated: oklch(0.23 0.05 250); /* elevated cards — #212952 */
   --color-primary: oklch(0.68 0.15 145); /* verde #16A34A aproximado */
   --color-primary-dark: oklch(0.58 0.14 145);
   --color-text: oklch(0.95 0.02 240); /* texto principal claro */
@@ -179,11 +180,11 @@
 }
 
 .dark {
-  --background: oklch(0.18 0.05 250);
+  --background: oklch(0.16 0.05 250);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.05 250);
+  --card: oklch(0.2 0.05 250);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.05 250);
+  --popover: oklch(0.2 0.05 250);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
@@ -202,7 +203,7 @@
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.21 0.05 250);
+  --sidebar: oklch(0.2 0.05 250);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -280,12 +281,12 @@
   }
 
   .dark {
-    --background: oklch(0.18 0.05 250);
+    --background: oklch(0.16 0.05 250);
     --foreground: oklch(0.95 0.02 240);
-    --card: oklch(0.21 0.05 250);
+    --card: oklch(0.2 0.05 250);
     --card-foreground: oklch(0.95 0.02 240);
     --primary: oklch(0.68 0.15 145);
-    --primary-foreground: oklch(0.18 0.05 250);
+    --primary-foreground: oklch(0.16 0.05 250);
     --secondary: oklch(0.25 0.05 250);
     --secondary-foreground: oklch(0.95 0.02 240);
     --muted: oklch(0.25 0.05 250);

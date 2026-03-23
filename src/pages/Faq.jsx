@@ -12,7 +12,7 @@ export default function Faq() {
         description='Perguntas frequentes sobre desenvolvimento de sites, lojas virtuais, prazos, pagamentos e suporte da Pedrazzoli Digital.'
       />
       <Navbar />
-      <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#0C0C0F]'>
+      <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#131834]'>
         <div className='pt-20' />
         <FAQ />
       </main>

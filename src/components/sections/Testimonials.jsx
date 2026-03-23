@@ -170,7 +170,7 @@ export default function Testimonials() {
                       whileHover={{ scale: 1.05 }}
                     >
                       <div
-                        className='w-full h-full bg-zinc-900 border border-zinc-800 shadow-2xl overflow-hidden p-5 sm:p-6 flex flex-col justify-between'
+                        className='w-full h-full bg-[#1a2042] border border-white/[0.08] shadow-2xl overflow-hidden p-5 sm:p-6 flex flex-col justify-between'
                         style={{ borderRadius: `${borderRadius}px` }}
                       >
                         {/* Stars */}
@@ -192,7 +192,7 @@ export default function Testimonials() {
                         </div>
 
                         {/* Author */}
-                        <div className='mt-4 pt-4 border-t border-zinc-800'>
+                        <div className='mt-4 pt-4 border-t border-white/[0.06]'>
                           <p className='text-[14px] font-bold text-zinc-100'>
                             {t.name}
                           </p>
