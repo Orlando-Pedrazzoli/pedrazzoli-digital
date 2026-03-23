@@ -12,23 +12,23 @@ import { getWhatsAppUrl } from '@/utils/whatsapp';
 const highlights = [
   {
     icon: Waves,
-    title: '10+ anos como empreendedor',
-    desc: 'Fundei e geri a Elite Surfing, empresa de equipamentos de surf com equipe de 16+ pessoas. Sei o que um negócio precisa para vender online.',
+    title: '15+ anos como empreendedor',
+    desc: 'Fundei e escalei a Elite Surfing de zero para R$200k/mes com 16 funcionarios e uma rede nacional de distribuidores. Sei o que um negocio precisa para vender online.',
   },
   {
     icon: Code,
-    title: '3+ anos em desenvolvimento',
-    desc: 'Full Stack Developer com formação pela Ironhack. React, Next.js, Node.js, MongoDB — código próprio, sem atalhos.',
+    title: '10+ projetos em producao',
+    desc: 'Full Stack Developer com formacao pela Ironhack. React, Next.js, TypeScript, Node.js, MongoDB, Stripe — codigo proprio, sem atalhos.',
   },
   {
     icon: Briefcase,
-    title: 'Data Analyst na Accenture',
-    desc: 'Experiência corporativa em análise de dados e AI. Combino visão de negócio com competência técnica.',
+    title: 'Content Operations Analyst na Accenture',
+    desc: 'Analise de conteudo e garantia de qualidade. Construi uma ferramenta interna de moderacao com IA usando Next.js, TypeScript e Google Gemini API.',
   },
   {
     icon: GraduationCap,
-    title: 'Formação contínua',
-    desc: 'Ironhack Bootcamp Full Stack + certificações em AI Engineering. Sempre atualizado com as melhores tecnologias.',
+    title: 'Formacao continua',
+    desc: 'Ironhack Bootcamp Full Stack (MERN Stack). Sempre atualizado com as tecnologias mais recentes do mercado.',
   },
 ];
 
@@ -41,7 +41,6 @@ export default function AboutMe() {
             {/* Photo side */}
             <div className='shrink-0'>
               <div className='relative'>
-                {/* TODO: substituir pela sua foto real */}
                 <div className='w-64 h-72 lg:w-72 lg:h-80 rounded-3xl overflow-hidden ring-1 ring-zinc-200 dark:ring-zinc-700 shadow-[0_30px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.3)]'>
                   <img
                     src='/orlando-img.jpg'
@@ -56,7 +55,7 @@ export default function AboutMe() {
                   <div className='flex items-center gap-2'>
                     <div className='w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse' />
                     <span className='text-[13px] font-semibold text-zinc-900 dark:text-zinc-100'>
-                      Disponível para projetos
+                      Disponivel para projetos
                     </span>
                   </div>
                 </div>
@@ -69,16 +68,17 @@ export default function AboutMe() {
             {/* Content side */}
             <div className='flex-1'>
               <p className='text-xs font-bold tracking-[2.5px] uppercase text-green-600 dark:text-green-400 mb-3'>
-                Quem está por trás
+                Quem esta por tras
               </p>
               <h2 className='font-display text-[clamp(28px,4vw,40px)] font-normal text-zinc-900 dark:text-zinc-100 leading-[1.15] mb-5'>
                 Orlando Pedrazzoli
               </h2>
               <p className='text-[16px] leading-relaxed text-zinc-500 dark:text-zinc-400 mb-8 max-w-130'>
-                Não sou uma agência com 50 pessoas. Sou um desenvolvedor que
-                entende de negócio — porque já fundei e geri o meu. Cada projeto
-                que desenvolvo tem a mesma dedicação que eu dava ao meu próprio
-                negócio. Você fala diretamente comigo, do primeiro contato à
+                Nao sou uma agencia com 50 pessoas. Sou um developer que entende
+                de negocio — porque passei 15 anos a fundar e gerir empresas
+                antes de escrever a minha primeira linha de codigo. Cada projeto
+                que desenvolvo tem a mesma dedicacao que eu dava ao meu proprio
+                negocio. Voce fala diretamente comigo, do primeiro contato a
                 entrega final.
               </p>
 
@@ -108,7 +108,7 @@ export default function AboutMe() {
 
               <Button
                 href={getWhatsAppUrl(
-                  'Olá Orlando! Quero conversar sobre meu projeto.',
+                  'Ola Orlando! Quero conversar sobre meu projeto.',
                 )}
                 external
                 variant='primary'

@@ -1,15 +1,15 @@
 export const plans = [
   {
     name: 'Site Institucional',
-    desc: 'Presença online profissional',
-    price: '997',
+    desc: 'Presenca online profissional',
+    price: '1.897',
     fromPrice: true,
     features: [
-      'Até 5 páginas',
+      'Ate 5 paginas',
       'Design personalizado responsivo',
-      'Formulário de contato / WhatsApp',
-      'SEO básico configurado',
-      'Domínio próprio + hospedagem',
+      'Formulario de contato / WhatsApp',
+      'SEO basico configurado',
+      'Dominio proprio + hospedagem',
       'Google Analytics integrado',
       '30 dias de suporte',
     ],
@@ -19,16 +19,16 @@ export const plans = [
   {
     name: 'E-Commerce',
     desc: 'Loja online completa',
-    price: '2.497',
+    price: '2.997',
     fromPrice: true,
     features: [
       'Produtos ilimitados',
       'Carrinho + checkout completo',
-      'PIX, cartão (até 12x), boleto',
-      'Cálculo de frete automático',
-      'Painel de gestão de pedidos',
-      'Sistema de avaliações',
-      'Blog + cupons + promoções',
+      'PIX, cartao (ate 12x), boleto',
+      'Calculo de frete automatico',
+      'Painel de gestao de pedidos',
+      'Sistema de avaliacoes',
+      'Blog + cupons + promocoes',
       'SEO otimizado',
       '60 dias de suporte',
     ],
@@ -37,25 +37,25 @@ export const plans = [
   },
   {
     name: 'Projeto Sob Medida',
-    desc: 'Necessidades específicas',
+    desc: 'Necessidades especificas',
     price: 'Sob consulta',
     fromPrice: false,
     features: [
       'Escopo personalizado',
       'Funcionalidades exclusivas',
-      'Integrações com sistemas externos',
+      'Integracoes com sistemas externos',
       'Painel admin completo',
-      'Área de clientes/alunos',
-      'App mobile (se necessário)',
+      'Area de clientes/alunos',
+      'App mobile (se necessario)',
       'Treinamento da equipe',
-      'Suporte contínuo + manutenção',
+      'Suporte continuo + manutencao',
     ],
     highlight: false,
-    cta: 'Solicitar Orçamento',
+    cta: 'Solicitar Orcamento',
   },
-]
+];
 
 export const maintenancePlan = {
-  price: '197',
-  description: 'Atualizações, suporte contínuo e melhorias no seu site.',
-}
+  price: '297',
+  description: 'Atualizacoes, suporte continuo e melhorias no seu site.',
+};

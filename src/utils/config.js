@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Pedrazzoli Digital',
   tagline: 'Sites e Lojas Online Profissionais',
   description:
-    'Sites profissionais, lojas virtuais e sistemas sob medida. Design moderno, código próprio, SEO otimizado e preço justo. Feito para converter.',
+    'Sites profissionais, lojas virtuais e sistemas sob medida. Design moderno, codigo proprio, SEO otimizado e preco justo. Feito para converter.',
   url: 'https://pedrazzolidigital.com',
 
   contact: {
@@ -13,7 +13,7 @@ export const siteConfig = {
 
   owner: {
     name: 'Orlando Pedrazzoli',
-    role: 'Full Stack Developer & AI Engineer',
+    role: 'Full Stack Developer',
     location: 'Lisboa, Portugal',
   },
 
