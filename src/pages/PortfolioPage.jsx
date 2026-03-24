@@ -47,16 +47,28 @@ export default function Portfolio() {
                     <div className='group rounded-[20px] overflow-hidden border border-zinc-200 dark:border-white/[0.08] bg-white dark:bg-[#1a2042] transition-all duration-400 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_16px_48px_rgba(0,0,0,0.3)] h-full flex flex-col'>
                       {/* Screenshot */}
                       {project.screenshot && (
-                        <div className='relative h-48 sm:h-56 overflow-hidden bg-zinc-100 dark:bg-zinc-800'>
-                          <img
-                            src={project.screenshot}
-                            alt={`${project.name} screenshot`}
-                            className='w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105'
-                            loading='lazy'
-                          />
+                        <div className='relative overflow-hidden bg-zinc-100 dark:bg-zinc-800'>
+                          {/* Browser bar mockup */}
+                          <div className='flex items-center gap-1.5 px-4 py-2.5 bg-zinc-200 dark:bg-zinc-700/60'>
+                            <span className='w-2.5 h-2.5 rounded-full bg-red-400/70'></span>
+                            <span className='w-2.5 h-2.5 rounded-full bg-yellow-400/70'></span>
+                            <span className='w-2.5 h-2.5 rounded-full bg-green-400/70'></span>
+                            <span className='ml-3 text-[10px] text-zinc-400 dark:text-zinc-500 truncate'>
+                              {project.url || project.name}
+                            </span>
+                          </div>
+                          {/* Screenshot image */}
+                          <div className='aspect-[16/10] overflow-hidden'>
+                            <img
+                              src={project.screenshot}
+                              alt={`${project.name} screenshot`}
+                              className='w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105'
+                              loading='lazy'
+                            />
+                          </div>
                           {/* Type badge */}
                           <span
-                            className='absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-white'
+                            className='absolute top-12 left-4 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-white shadow-lg'
                             style={{ backgroundColor: project.color }}
                           >
                             {project.type}
