@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import SEO from '@/components/seo/SEO';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -14,9 +15,14 @@ import FAQ from '@/components/sections/FAQ';
 import CTAFinal from '@/components/sections/CTAFinal';
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <>
-      <SEO />
+      <SEO
+        title={t('seo.home.title')}
+        description={t('seo.home.description')}
+      />
       <Navbar />
       <main>
         {/* 1. Hero — proposta de valor + CTA */}

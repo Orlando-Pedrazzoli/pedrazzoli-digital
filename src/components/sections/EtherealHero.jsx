@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import * as THREE from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
@@ -8,45 +9,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const SECTIONS = [
-  {
-    id: 'hero',
-    headline: 'Pedrazzoli',
-    subheadline: 'Digital',
-    body: 'Sites e lojas online sob medida que realmente geram vendas.',
-  },
-  {
-    id: 'sites',
-    headline: 'Sites',
-    subheadline: 'Profissionais',
-    body: 'Design moderno, código próprio, SEO otimizado e performance máxima. Sem templates.',
-  },
-  {
-    id: 'ecommerce',
-    headline: 'E-Commerce',
-    subheadline: 'Completo',
-    body: 'Lojas virtuais com carrinho, checkout, Pagar.me/Stripe e painel de gestão.',
-  },
-  {
-    id: 'design',
-    headline: 'Design',
-    subheadline: '& Branding',
-    body: 'UI/UX, identidade visual, logotipos e protótipos interativos pensados para conversão.',
-  },
-  {
-    id: 'framer',
-    headline: 'Framer',
-    subheadline: 'Development',
-    body: 'Landing pages e portfólios animados de alta performance com Framer.',
-  },
-  {
-    id: 'contact',
-    headline: 'Vamos',
-    subheadline: 'Criar Juntos',
-    body: 'Do briefing ao deploy — fale direto comigo, sem agência no meio.',
-  },
-];
 
 const COLOR_PALETTE = {
   primary: '#16a34a',
@@ -411,16 +373,18 @@ const cinematicPostShader = {
   `,
 };
 
-/* ─── Calcula Z da câmera baseado na largura da tela ─── */
 function getCameraZ() {
   const vw = window.innerWidth;
-  if (vw < 480) return 7.5; // mobile — afasta bastante
-  if (vw < 768) return 6.5; // tablet pequeno
-  if (vw < 1024) return 5.8; // tablet
-  return 5; // desktop — valor original
+  if (vw < 480) return 7.5;
+  if (vw < 768) return 6.5;
+  if (vw < 1024) return 5.8;
+  return 5;
 }
 
 export default function EtherealHero() {
+  const { t } = useTranslation();
+  const sections = t('hero.sections', { returnObjects: true });
+
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const meshRef = useRef(null);
@@ -438,7 +402,6 @@ export default function EtherealHero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
 
-  // Initialize Three.js
   useEffect(() => {
     if (!canvasRef.current) return;
 
@@ -582,7 +545,6 @@ export default function EtherealHero() {
     return cleanup;
   }, []);
 
-  // Scroll logic
   useEffect(() => {
     if (!isLoaded) return;
 
@@ -627,7 +589,7 @@ export default function EtherealHero() {
       },
     });
 
-    SECTIONS.forEach((section, idx) => {
+    sections.forEach((section, idx) => {
       const el = sectionsRef.current[idx];
       if (!el) return;
 
@@ -692,9 +654,8 @@ export default function EtherealHero() {
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
-  }, [isLoaded]);
+  }, [isLoaded, sections]);
 
-  // Mouse + Touch
   useEffect(() => {
     const onMove = e => {
       mouseRef.current.x = e.clientX / window.innerWidth;
@@ -716,22 +677,19 @@ export default function EtherealHero() {
 
   return (
     <div ref={containerRef} className='ethereal-hero'>
-      {/* Sticky canvas — stays fixed while scrolling inside ethereal-hero, then releases */}
       <div className='ethereal-canvas-wrapper'>
         <canvas ref={canvasRef} className='ethereal-canvas' />
       </div>
 
-      {/* Scroll progress bar */}
       <div className='ethereal-progress'>
         <div ref={progressRef} className='ethereal-progress-bar' />
       </div>
 
-      {/* Sections */}
-      {SECTIONS.map((section, index) => (
+      {sections.map((section, index) => (
         <section
-          key={section.id}
+          key={index}
           ref={el => (sectionsRef.current[index] = el)}
-          className={`ethereal-section ${index === SECTIONS.length - 1 ? 'ethereal-section--last' : ''}`}
+          className={`ethereal-section ${index === sections.length - 1 ? 'ethereal-section--last' : ''}`}
           data-section={index}
         >
           <div className='ethereal-section-content'>
@@ -742,9 +700,8 @@ export default function EtherealHero() {
         </section>
       ))}
 
-      {/* Loading overlay */}
       <div className={`ethereal-loading ${isLoaded ? 'ethereal-loaded' : ''}`}>
-        <div className='ethereal-loading-text'>Carregando...</div>
+        <div className='ethereal-loading-text'>{t('hero.loading')}</div>
       </div>
     </div>
   );

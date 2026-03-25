@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import SEO from '@/components/seo/SEO';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -6,11 +7,13 @@ import AboutMe from '@/components/sections/AboutMe';
 import Process from '@/components/sections/Process';
 
 export default function Sobre() {
+  const { t } = useTranslation();
+
   return (
     <>
       <SEO
-        title='Sobre | Pedrazzoli Digital'
-        description='Conheça Orlando Pedrazzoli — Full Stack Developer com 10+ anos de experiência empreendedora e 3+ anos em desenvolvimento web.'
+        title={t('seo.about.title')}
+        description={t('seo.about.description')}
       />
       <Navbar />
       <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#131834]'>

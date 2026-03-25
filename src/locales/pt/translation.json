@@ -1,0 +1,528 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "services": "Servicos",
+    "about": "Sobre",
+    "plans": "Planos",
+    "faq": "FAQ",
+    "talkToMe": "Fale Comigo",
+    "menu": "Menu",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "mainNav": "Navegacao principal",
+    "mobileNav": "Menu mobile"
+  },
+
+  "hero": {
+    "sections": [
+      {
+        "headline": "Pedrazzoli",
+        "subheadline": "Digital",
+        "body": "Sites e lojas online sob medida que realmente geram vendas."
+      },
+      {
+        "headline": "Sites",
+        "subheadline": "Profissionais",
+        "body": "Design moderno, codigo proprio, SEO otimizado e performance maxima. Sem templates."
+      },
+      {
+        "headline": "E-Commerce",
+        "subheadline": "Completo",
+        "body": "Lojas virtuais com carrinho, checkout, Pagar.me/Stripe e painel de gestao."
+      },
+      {
+        "headline": "Design",
+        "subheadline": "& Branding",
+        "body": "UI/UX, identidade visual, logotipos e prototipos interativos pensados para conversao."
+      },
+      {
+        "headline": "Framer",
+        "subheadline": "Development",
+        "body": "Landing pages e portfolios animados de alta performance com Framer."
+      },
+      {
+        "headline": "Vamos",
+        "subheadline": "Criar Juntos",
+        "body": "Do briefing ao deploy — fale direto comigo, sem agencia no meio."
+      }
+    ],
+    "loading": "Carregando..."
+  },
+
+  "features": {
+    "label": "Funcionalidades",
+    "title": "Tudo incluso. <em>Sem surpresas.</em>",
+    "description": "Cada projeto e entregue completo e pronto para funcionar. Explore as areas de atuacao da Pedrazzoli Digital.",
+    "folders": [
+      {
+        "title": "Web Development",
+        "description": "Sites, E-Commerce & Apps",
+        "projects": [
+          "Sites & Intranets",
+          "E-Commerce & CMS",
+          "Integracoes & APIs"
+        ]
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "Design Visual & Experiencia",
+        "projects": [
+          "Visual Design",
+          "Research & Discovery",
+          "Testes & Validacao"
+        ]
+      },
+      {
+        "title": "Estrategia Digital",
+        "description": "Planeamento & Consultoria",
+        "projects": [
+          "Estrategia Tecnica",
+          "Arquitetura de Informacao",
+          "Estrategia de Conteudo"
+        ]
+      },
+      {
+        "title": "SEO",
+        "description": "Otimizacao para Google",
+        "projects": [
+          "SEO Tecnico",
+          "Keywords & Analise",
+          "Performance & Core Web Vitals"
+        ]
+      },
+      {
+        "title": "Suporte Continuo",
+        "description": "Manutencao & Evolucao",
+        "projects": ["Manutencao", "Avaliacao & Auditoria", "Evolucao & Escala"]
+      },
+      {
+        "title": "Inteligencia Artificial",
+        "description": "Automacao & IA",
+        "projects": [
+          "Consultoria em IA",
+          "Automacoes & Chatbots",
+          "Cloud & Infraestrutura"
+        ]
+      }
+    ]
+  },
+
+  "businessTypes": {
+    "label": "Solucoes para seu Negocio",
+    "title": "Independentemente do segmento, seu site precisa <em>vender.</em>",
+    "description": "Cada negocio tem necessidades diferentes. Desenvolvo solucoes especificas para o seu segmento, com as funcionalidades que realmente fazem diferenca no dia a dia.",
+    "notFound": "Nao encontrou seu segmento?",
+    "tellMe": "Me conta qual e",
+    "weServe": " — provavelmente ja atendemos.",
+    "types": [
+      {
+        "name": "Loja Online",
+        "desc": "E-commerce completo com catalogo, carrinho, checkout e gestao de pedidos."
+      },
+      {
+        "name": "Restaurante",
+        "desc": "Cardapio digital, pedidos online, QR code para mesa e delivery integrado."
+      },
+      {
+        "name": "Clinica & Saude",
+        "desc": "Site institucional com agendamento online, equipe medica e conformidade LGPD."
+      },
+      {
+        "name": "Imobiliaria",
+        "desc": "Listagem de imoveis com filtros, fotos, mapa interativo e contato direto."
+      },
+      {
+        "name": "Educacao & Cursos",
+        "desc": "Plataforma de aulas, inscricoes online, area do aluno e certificados."
+      },
+      {
+        "name": "Servicos & Oficina",
+        "desc": "Portfolio de servicos, orcamento online e depoimentos de clientes."
+      },
+      {
+        "name": "Escritorio & Consultoria",
+        "desc": "Site institucional profissional com cases, blog e captacao de leads."
+      },
+      {
+        "name": "Beleza & Bem-Estar",
+        "desc": "Agendamento online, galeria de trabalhos, promocoes e avaliacoes de clientes."
+      }
+    ]
+  },
+
+  "portfolio": {
+    "label": "Portfolio",
+    "title": "Projetos <em>reais</em>, resultados reais.",
+    "description": "Cada projeto e construido do zero com codigo proprio. Sem templates, sem limitacoes — e com resultados mensuraveis.",
+    "viewAll": "Ver todos os projetos",
+    "allProjectsTitle": "Todos os <em>projetos</em>",
+    "visitSite": "Visitar site",
+    "privateProject": "Projeto privado",
+    "viewFeatures": "Ver funcionalidades",
+    "backToHome": "Voltar ao inicio",
+    "items": [
+      {
+        "title": "Elite Surfing",
+        "description": "E-Commerce com 446+ produtos, checkout otimizado e PIX automatico."
+      },
+      {
+        "title": "Centro Dentario Colombo",
+        "description": "Site institucional bilingue PT/EN com agendamento integrado."
+      },
+      {
+        "title": "Street Paint",
+        "description": "Oficina com orcamento interativo por peca e chatbot de IA."
+      },
+      {
+        "title": "Go Portugal Tours",
+        "description": "24 roteiros de tours privados com precos dinamicos."
+      }
+    ],
+    "projects": [
+      {
+        "desc": "Loja online completa com 446+ produtos, checkout otimizado, PIX com desconto automatico e painel admin. Operacao 100% digital.",
+        "result": "Loja no ar e vendendo em menos de 45 dias."
+      },
+      {
+        "desc": "Site bilingue PT/EN para clinica em Lisboa. Portal do paciente, painel admin, autenticacao Clerk e conformidade GDPR.",
+        "result": "Site entregue em 3 semanas, 100% conforme com GDPR."
+      },
+      {
+        "desc": "Oficina em Sintra com orcamento interativo por peca do carro via SVG e integracao WhatsApp.",
+        "result": "Orcamentos online reduzindo ligacoes desnecessarias."
+      },
+      {
+        "desc": "24 roteiros de tours privados com precos dinamicos por grupo, formulario Zod e suporte PT/EN.",
+        "result": "Reservas diretas sem intermediarios."
+      },
+      {
+        "desc": "Plataforma SaaS de analytics do Instagram. Dashboard com faturacao, tracker de atividade, visualizador anonimo e downloader HD.",
+        "result": "Plataforma SaaS completa com assinaturas Stripe."
+      },
+      {
+        "desc": "Website de escritorio de advocacia com loja de livros, plataforma de cursos e tema dark/light customizado.",
+        "result": "Website completo com loja integrada e conformidade LGPD."
+      },
+      {
+        "desc": "Plataforma de gestao de pedidos B2B com catalogo multi-fornecedor, tabelas de precos e exportacao PDF/Excel.",
+        "result": "Sistema de gestao completo para distribuidores."
+      },
+      {
+        "desc": "Menu digital e sistema de gestao para restaurante indiano com painel admin, QR code e filtros dieteticos.",
+        "result": "Menu digital completo com gestao integrada."
+      }
+    ]
+  },
+
+  "testimonials": {
+    "label": "Depoimentos",
+    "title": "Quem ja trabalhou comigo, <em>recomenda.</em>",
+    "description": "Resultados reais de clientes reais. Cada projeto entregue e uma parceria de confianca.",
+    "items": [
+      {
+        "text": "O Orlando transformou minha ideia em uma loja online profissional em menos de 45 dias. Hoje vendemos para todo o Brasil com um site rapido, bonito e que realmente converte.",
+        "role": "CEO"
+      },
+      {
+        "text": "Precisavamos de um site bilingue, conforme com GDPR e que transmitisse confianca. O resultado superou as expectativas — profissional, rapido e os pacientes elogiam constantemente.",
+        "role": "Diretora Clinica"
+      },
+      {
+        "text": "O sistema de orcamento online mudou completamente nosso atendimento. Os clientes ja chegam sabendo o preco, reduziu ligacoes desnecessarias e aumentou as conversoes.",
+        "role": "Proprietario"
+      },
+      {
+        "text": "Ter 24 tours com precos dinamicos e reservas diretas sem intermediarios foi um divisor de aguas. O SEO ja esta trazendo turistas organicamente. Recomendo sem hesitar.",
+        "role": "Fundadora"
+      }
+    ]
+  },
+
+  "process": {
+    "label": "Como Funciona",
+    "title": "Do primeiro contato ao <em>site no ar.</em>",
+    "steps": [
+      {
+        "title": "Conversa",
+        "desc": "Entendemos seu negocio, publico, objetivos e necessidades especificas. Sem compromisso, sem jargao tecnico."
+      },
+      {
+        "title": "Proposta",
+        "desc": "Apresentamos o plano ideal com tudo detalhado: funcionalidades, prazo e investimento. Transparencia total."
+      },
+      {
+        "title": "Criacao",
+        "desc": "Desenvolvemos seu site com voce acompanhando. Ajustes ate a aprovacao final."
+      },
+      {
+        "title": "Lancamento",
+        "desc": "Site no ar, dominio configurado, treinamento para voce gerenciar tudo sozinho. Suporte incluido."
+      }
+    ]
+  },
+
+  "techStack": {
+    "label": "Tecnologias",
+    "title": "Ferramentas que <em>utilizo.</em>",
+    "description": "Stack moderna e testada em producao. Cada tecnologia e escolhida pelo resultado que entrega ao seu negocio."
+  },
+
+  "plans": {
+    "label": "Investimento",
+    "title": "Planos <em>transparentes.</em>",
+    "description": "Pagamento unico pela criacao. Voce paga pelo que recebe — e recebe tudo funcionando.",
+    "warning": "<strong>Um site mal feito custa caro todos os dias.</strong> Lento, sem conversao ou travado em template generico — voce perde cliente antes mesmo de ele ver seu produto. Um site profissional trabalha por voce 24h por dia, 7 dias por semana.",
+    "trustSignals": [
+      "Contrato formal",
+      "Nota fiscal emitida",
+      "Entrega em 15–45 dias",
+      "Atendimento Brasil inteiro"
+    ],
+    "guarantee": "<strong>Garantia de satisfacao:</strong> Ajustes ate a aprovacao final. Se o resultado nao ficar como esperado, refinamos juntos ate chegar la.",
+    "maintenance": "<strong>Manutencao mensal opcional:</strong> A partir de R$ {{price}}/mes para {{description}}",
+    "maintenancePrice": "297",
+    "maintenanceDesc": "atualizacoes, suporte continuo e melhorias no seu site.",
+    "mostPopular": "Mais pedido",
+    "startingFrom": "a partir de",
+    "list": [
+      {
+        "name": "Site Institucional",
+        "desc": "Presenca online profissional",
+        "price": "1.897",
+        "currency": "R$",
+        "fromPrice": true,
+        "features": [
+          "Ate 5 paginas",
+          "Design personalizado responsivo",
+          "Formulario de contato / WhatsApp",
+          "SEO basico configurado",
+          "Dominio proprio + hospedagem",
+          "Google Analytics integrado",
+          "30 dias de suporte"
+        ],
+        "cta": "Quero Meu Site"
+      },
+      {
+        "name": "E-Commerce",
+        "desc": "Loja online completa",
+        "price": "2.997",
+        "currency": "R$",
+        "fromPrice": true,
+        "features": [
+          "Produtos ilimitados",
+          "Carrinho + checkout completo",
+          "PIX, cartao (ate 12x), boleto",
+          "Calculo de frete automatico",
+          "Painel de gestao de pedidos",
+          "Sistema de avaliacoes",
+          "Blog + cupons + promocoes",
+          "SEO otimizado",
+          "60 dias de suporte"
+        ],
+        "cta": "Quero Minha Loja"
+      },
+      {
+        "name": "Projeto Sob Medida",
+        "desc": "Necessidades especificas",
+        "price": "Sob consulta",
+        "currency": "",
+        "fromPrice": false,
+        "features": [
+          "Escopo personalizado",
+          "Funcionalidades exclusivas",
+          "Integracoes com sistemas externos",
+          "Painel admin completo",
+          "Area de clientes/alunos",
+          "App mobile (se necessario)",
+          "Treinamento da equipe",
+          "Suporte continuo + manutencao"
+        ],
+        "cta": "Solicitar Orcamento"
+      }
+    ]
+  },
+
+  "faq": {
+    "label": "Duvidas",
+    "title": "Perguntas <em>frequentes.</em>",
+    "items": [
+      {
+        "question": "Quanto tempo demora para ficar pronto?",
+        "answer": "Sites institucionais ficam prontos em 7 a 15 dias. E-commerces entre 3 a 5 semanas. Projetos sob medida dependem do escopo, mas definimos prazo antes de comecar."
+      },
+      {
+        "question": "Preciso ter conhecimento tecnico?",
+        "answer": "Nao. O painel de gestao e feito para qualquer pessoa usar. Alem disso, todo projeto inclui treinamento para voce saber gerenciar tudo sozinho."
+      },
+      {
+        "question": "E se eu ja tiver um site e quiser melhorar?",
+        "answer": "Tambem trabalhamos com redesign e migracao. Analisamos seu site atual e propomos as melhorias necessarias."
+      },
+      {
+        "question": "O que acontece depois do lancamento?",
+        "answer": "Todos os planos incluem suporte pos-lancamento. Tambem oferecemos planos de manutencao mensal para quem quer acompanhamento continuo e atualizacoes."
+      },
+      {
+        "question": "Posso usar meu dominio atual?",
+        "answer": "Sim! Configuramos no dominio que voce ja tem ou ajudamos a registrar um novo."
+      },
+      {
+        "question": "Voces fazem aplicativos tambem?",
+        "answer": "Sim. Para projetos que precisam de app mobile, desenvolvemos com React Native. Fale conosco para entendermos sua necessidade."
+      },
+      {
+        "question": "Como funciona o pagamento?",
+        "answer": "Dividimos em etapas: uma entrada para iniciar o projeto e o restante na entrega. Aceitamos PIX, transferencia e cartao."
+      }
+    ]
+  },
+
+  "about": {
+    "label": "Quem esta por tras",
+    "name": "Orlando Pedrazzoli",
+    "bio": "Nao sou uma agencia com 50 pessoas. Sou um developer que entende de negocio — porque passei 15 anos a fundar e gerir empresas antes de escrever a minha primeira linha de codigo. Cada projeto que desenvolvo tem a mesma dedicacao que eu dava ao meu proprio negocio. Voce fala diretamente comigo, do primeiro contato a entrega final.",
+    "available": "Disponivel para projetos",
+    "talkCta": "Falar com o Orlando",
+    "whatsappMsg": "Ola Orlando! Quero conversar sobre meu projeto.",
+    "highlights": [
+      {
+        "title": "15+ anos como empreendedor",
+        "desc": "Fundei e escalei a Elite Surfing de zero para R$200k/mes com 16 funcionarios e uma rede nacional de distribuidores. Sei o que um negocio precisa para vender online."
+      },
+      {
+        "title": "10+ projetos em producao",
+        "desc": "Full Stack Developer com formacao pela Ironhack. React, Next.js, TypeScript, Node.js, MongoDB, Stripe — codigo proprio, sem atalhos."
+      },
+      {
+        "title": "Content Operations Analyst na Accenture",
+        "desc": "Analise de conteudo e garantia de qualidade. Construi uma ferramenta interna de moderacao com IA usando Next.js, TypeScript e Google Gemini API."
+      },
+      {
+        "title": "Formacao continua",
+        "desc": "Ironhack Bootcamp Full Stack (MERN Stack). Sempre atualizado com as tecnologias mais recentes do mercado."
+      }
+    ]
+  },
+
+  "cta": {
+    "title": "Vamos criar algo <em>incrivel?</em>",
+    "subtitle": "Preencha o formulario e receba um orcamento personalizado em ate 24 horas. Sem compromisso.",
+    "directContact": "Voce fala direto comigo.",
+    "directContactDesc": "Sem atendente, sem agencia. Orlando Pedrazzoli — o desenvolvedor — responde pessoalmente.",
+    "preferNow": "Prefere resolver agora?",
+    "whatsappCta": "Iniciar Projeto no WhatsApp",
+    "whatsappMsg": "Ola! Quero iniciar meu projeto.",
+    "form": {
+      "name": "Seu nome *",
+      "email": "Seu email *",
+      "phone": "WhatsApp (opcional)",
+      "businessType": "Tipo de negocio",
+      "message": "Conte um pouco sobre seu projeto... *",
+      "submit": "Iniciar Projeto",
+      "sending": "Enviando...",
+      "successTitle": "Mensagem enviada!",
+      "successDesc": "Retorno em ate 24 horas. Fique de olho no seu email.",
+      "errorMsg": "Erro ao enviar. Tente novamente ou use o WhatsApp."
+    },
+    "businessOptions": [
+      "Loja Online / E-Commerce",
+      "Restaurante / Cafeteria",
+      "Clinica / Saude",
+      "Salao / Barbearia",
+      "Imobiliaria",
+      "Servicos / Oficina",
+      "Turismo",
+      "Educacao / Cursos",
+      "Outro"
+    ]
+  },
+
+  "verticalTabs": {
+    "label": "Servicos",
+    "title": "Como posso ajudar o seu <em>negocio.</em>",
+    "description": "Do conceito ao deploy — solucoes completas de desenvolvimento, design e branding para impulsionar a sua presenca digital.",
+    "prev": "Anterior",
+    "next": "Proximo",
+    "services": [
+      {
+        "title": "Sites Institucionais",
+        "description": "Sites profissionais com codigo proprio, design moderno, SEO otimizado e performance maxima. Sem templates, sem limitacoes."
+      },
+      {
+        "title": "E-Commerce",
+        "description": "Lojas virtuais completas com carrinho, checkout, integracao Pagar.me/Stripe, gestao de produtos e painel de vendedor."
+      },
+      {
+        "title": "Framer Development",
+        "description": "Sites de alta performance e animacoes fluidas com Framer. Ideal para landing pages, portfolios e produtos digitais."
+      },
+      {
+        "title": "Branding",
+        "description": "Identidade visual completa para o seu negocio — logotipo, paleta de cores, tipografia e guia de marca que transmite profissionalismo."
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "Interfaces pensadas para conversao. Prototipos interativos, wireframes e design centrado no utilizador, do conceito ao pixel final."
+      },
+      {
+        "title": "Projetos Sob Medida",
+        "description": "Sistemas personalizados, dashboards, integracoes com APIs, automacoes e solucoes completas full-stack para o seu negocio."
+      }
+    ]
+  },
+
+  "footer": {
+    "brand": "Sites e lojas online com codigo proprio, feitos para converter. Sem templates, sem limitacoes.",
+    "navigation": "Navegacao",
+    "legal": "Legal",
+    "privacyPolicy": "Politica de Privacidade",
+    "termsOfUse": "Termos de Uso",
+    "manageCookies": "Gerenciar Cookies",
+    "contact": "Contato",
+    "rights": "Todos os direitos reservados.",
+    "madeWith": "Feito com codigo proprio — zero templates."
+  },
+
+  "seo": {
+    "home": {
+      "title": "Pedrazzoli Digital | Sites e Lojas Online",
+      "description": "Sites profissionais, lojas virtuais e sistemas sob medida. Design moderno, codigo proprio, SEO otimizado e preco justo. Feito para converter."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Projetos reais de desenvolvimento web: e-commerce, SaaS, sites institucionais, plataformas B2B e mais. Veja o trabalho da Pedrazzoli Digital."
+    },
+    "services": {
+      "title": "Servicos | Pedrazzoli Digital",
+      "description": "Desenvolvimento web, e-commerce, UI/UX design, branding, SEO e suporte continuo. Conheca todos os servicos da Pedrazzoli Digital."
+    },
+    "about": {
+      "title": "Sobre | Pedrazzoli Digital",
+      "description": "Conheca Orlando Pedrazzoli — Full Stack Developer com 10+ anos de experiencia empreendedora e 3+ anos em desenvolvimento web."
+    },
+    "plans": {
+      "title": "Planos e Precos",
+      "description": "Planos transparentes para criacao de sites e lojas online. Site institucional a partir de R$1.897, e-commerce a partir de R$2.997. Sem mensalidade, sem surpresas."
+    },
+    "faq": {
+      "title": "FAQ | Pedrazzoli Digital",
+      "description": "Perguntas frequentes sobre desenvolvimento de sites, lojas virtuais, prazos, pagamentos e suporte da Pedrazzoli Digital."
+    },
+    "privacy": {
+      "title": "Politica de Privacidade",
+      "description": "Politica de Privacidade da Pedrazzoli Digital. Saiba como coletamos, utilizamos e protegemos seus dados pessoais."
+    },
+    "terms": {
+      "title": "Termos de Uso",
+      "description": "Termos de Uso do site Pedrazzoli Digital. Condicoes gerais para utilizacao dos nossos servicos de desenvolvimento web."
+    }
+  },
+
+  "whatsapp": {
+    "businessPrefix": "Ola! Tenho interesse em um site para meu negocio:"
+  },
+
+  "common": {
+    "backToHome": "Voltar ao inicio"
+  }
+}

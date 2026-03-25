@@ -1,31 +1,13 @@
 import { useState } from 'react';
-import {
-  Send,
-  CheckCircle,
-  AlertCircle,
-  Loader2,
-  MessageCircle,
-} from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import FadeIn from '@/components/ui/FadeIn';
 import Button from '@/components/ui/Button';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
 
-// EmailJS config via .env (VITE_ prefix required)
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-const businessOptions = [
-  'Loja Online / E-Commerce',
-  'Restaurante / Cafeteria',
-  'Clínica / Saúde',
-  'Salão / Barbearia',
-  'Imobiliária',
-  'Serviços / Oficina',
-  'Turismo',
-  'Educação / Cursos',
-  'Outro',
-];
 
 const initialForm = {
   name: '',
@@ -36,6 +18,9 @@ const initialForm = {
 };
 
 export default function CTAFinal() {
+  const { t } = useTranslation();
+  const businessOptions = t('cta.businessOptions', { returnObjects: true });
+
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle');
 
@@ -53,8 +38,8 @@ export default function CTAFinal() {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         from_name: form.name,
         from_email: form.email,
-        phone: form.phone || 'Não informado',
-        business_type: form.business || 'Não informado',
+        phone: form.phone || 'N/A',
+        business_type: form.business || 'N/A',
         message: form.message,
         to_email: 'pedrazzoliorlando@gmail.com',
       });
@@ -76,47 +61,41 @@ export default function CTAFinal() {
     <section id='contato' className='py-24 px-6 bg-[#F8F7F4] dark:bg-[#131834]'>
       <FadeIn>
         <div className='max-w-220 mx-auto rounded-3xl py-16 px-8 md:px-14 bg-white dark:bg-[#1a2042] border border-zinc-200 dark:border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.3)] relative overflow-hidden'>
-          {/* BG decorations */}
           <div className='absolute -top-15 -right-15 w-55 h-55 rounded-full bg-green-600/8 dark:bg-green-600/12 pointer-events-none' />
           <div className='absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-amber-600/5 dark:bg-amber-600/8 pointer-events-none' />
 
           <div className='relative flex flex-col lg:flex-row gap-12 lg:gap-16 items-start'>
             {/* Left */}
             <div className='flex-1 lg:max-w-75'>
-              <h2 className='font-display text-[clamp(24px,4vw,36px)] font-normal text-zinc-900 dark:text-white mb-4 leading-[1.15]'>
-                Vamos criar algo{' '}
-                <em className='italic text-green-600 dark:text-green-400'>
-                  incrível?
-                </em>
-              </h2>
+              <h2
+                className='font-display text-[clamp(24px,4vw,36px)] font-normal text-zinc-900 dark:text-white mb-4 leading-[1.15] [&>em]:italic [&>em]:text-green-600 dark:[&>em]:text-green-400'
+                dangerouslySetInnerHTML={{ __html: t('cta.title') }}
+              />
               <p className='text-[15px] text-zinc-500 dark:text-white/50 leading-relaxed mb-6'>
-                Preencha o formulário e receba um orçamento personalizado em até
-                24 horas. Sem compromisso.
+                {t('cta.subtitle')}
               </p>
 
-              {/* Direct contact highlight */}
               <div className='mb-6 p-4 rounded-xl bg-zinc-50 dark:bg-[#212952] border border-zinc-200 dark:border-white/[0.08]'>
                 <p className='text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 mb-1'>
-                  Você fala direto comigo.
+                  {t('cta.directContact')}
                 </p>
                 <p className='text-[12px] text-zinc-500 dark:text-zinc-400 leading-relaxed'>
-                  Sem atendente, sem agência. Orlando Pedrazzoli — o
-                  desenvolvedor — responde pessoalmente.
+                  {t('cta.directContactDesc')}
                 </p>
               </div>
 
               <div className='hidden lg:block'>
                 <p className='text-[13px] text-zinc-400 dark:text-white/35 mb-3'>
-                  Prefere resolver agora?
+                  {t('cta.preferNow')}
                 </p>
                 <Button
-                  href={getWhatsAppUrl('Olá! Quero iniciar meu projeto.')}
+                  href={getWhatsAppUrl(t('cta.whatsappMsg'))}
                   external
                   variant='primary'
                   size='md'
                   whatsapp
                 >
-                  Iniciar Projeto no WhatsApp
+                  {t('cta.whatsappCta')}
                 </Button>
               </div>
             </div>
@@ -132,10 +111,10 @@ export default function CTAFinal() {
                     />
                   </div>
                   <h3 className='text-xl font-bold text-zinc-900 dark:text-white mb-2'>
-                    Mensagem enviada!
+                    {t('cta.form.successTitle')}
                   </h3>
                   <p className='text-sm text-zinc-500 dark:text-white/50'>
-                    Retorno em até 24 horas. Fique de olho no seu email.
+                    {t('cta.form.successDesc')}
                   </p>
                 </div>
               ) : (
@@ -144,7 +123,7 @@ export default function CTAFinal() {
                     <input
                       type='text'
                       name='name'
-                      placeholder='Seu nome *'
+                      placeholder={t('cta.form.name')}
                       required
                       value={form.name}
                       onChange={handleChange}
@@ -153,7 +132,7 @@ export default function CTAFinal() {
                     <input
                       type='email'
                       name='email'
-                      placeholder='Seu email *'
+                      placeholder={t('cta.form.email')}
                       required
                       value={form.email}
                       onChange={handleChange}
@@ -165,7 +144,7 @@ export default function CTAFinal() {
                     <input
                       type='tel'
                       name='phone'
-                      placeholder='WhatsApp (opcional)'
+                      placeholder={t('cta.form.phone')}
                       value={form.phone}
                       onChange={handleChange}
                       className={inputTheme}
@@ -177,7 +156,7 @@ export default function CTAFinal() {
                       className={`${inputTheme} ${!form.business ? 'text-zinc-400 dark:text-white/30' : ''}`}
                     >
                       <option value='' disabled>
-                        Tipo de negócio
+                        {t('cta.form.businessType')}
                       </option>
                       {businessOptions.map(opt => (
                         <option
@@ -193,7 +172,7 @@ export default function CTAFinal() {
 
                   <textarea
                     name='message'
-                    placeholder='Conte um pouco sobre seu projeto... *'
+                    placeholder={t('cta.form.message')}
                     required
                     rows={4}
                     value={form.message}
@@ -210,11 +189,11 @@ export default function CTAFinal() {
                       {status === 'sending' ? (
                         <>
                           <Loader2 size={18} className='animate-spin' />{' '}
-                          Enviando...
+                          {t('cta.form.sending')}
                         </>
                       ) : (
                         <>
-                          <Send size={18} /> Iniciar Projeto
+                          <Send size={18} /> {t('cta.form.submit')}
                         </>
                       )}
                     </button>
@@ -223,28 +202,25 @@ export default function CTAFinal() {
                   {status === 'error' && (
                     <div className='flex items-center gap-2 text-red-500 dark:text-red-400 text-sm mt-2'>
                       <AlertCircle size={16} />
-                      <span>
-                        Erro ao enviar. Tente novamente ou use o WhatsApp.
-                      </span>
+                      <span>{t('cta.form.errorMsg')}</span>
                     </div>
                   )}
                 </form>
               )}
 
-              {/* WhatsApp mobile fallback */}
               <div className='block lg:hidden mt-6 text-center'>
                 <p className='text-[13px] text-zinc-400 dark:text-white/35 mb-3'>
-                  Prefere resolver agora?
+                  {t('cta.preferNow')}
                 </p>
                 <Button
-                  href={getWhatsAppUrl('Olá! Quero iniciar meu projeto.')}
+                  href={getWhatsAppUrl(t('cta.whatsappMsg'))}
                   external
                   variant='primary'
                   size='md'
                   whatsapp
                   fullWidth
                 >
-                  Iniciar Projeto no WhatsApp
+                  {t('cta.whatsappCta')}
                 </Button>
               </div>
             </div>

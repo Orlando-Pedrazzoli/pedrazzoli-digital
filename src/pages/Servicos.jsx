@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import SEO from '@/components/seo/SEO';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -10,11 +11,13 @@ import Plans from '@/components/sections/Plans';
 import CTAFinal from '@/components/sections/CTAFinal';
 
 export default function Servicos() {
+  const { t } = useTranslation();
+
   return (
     <>
       <SEO
-        title='Servicos | Pedrazzoli Digital'
-        description='Desenvolvimento web, e-commerce, UI/UX design, branding, SEO e suporte continuo. Conheca todos os servicos da Pedrazzoli Digital.'
+        title={t('seo.services.title')}
+        description={t('seo.services.description')}
       />
       <Navbar />
       <main className='relative z-20 bg-[#F8F7F4] dark:bg-[#131834]'>

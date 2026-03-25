@@ -2,76 +2,38 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import FadeIn from '@/components/ui/FadeIn';
 import SectionHeader from '@/components/ui/SectionHeader';
 
-const SERVICES = [
-  {
-    id: '01',
-    title: 'Sites Institucionais',
-    description:
-      'Sites profissionais com código próprio, design moderno, SEO otimizado e performance máxima. Sem templates, sem limitações.',
-    image:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200',
-  },
-  {
-    id: '02',
-    title: 'E-Commerce',
-    description:
-      'Lojas virtuais completas com carrinho, checkout, integração Pagar.me/Stripe, gestão de produtos e painel de vendedor.',
-    image:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200',
-  },
-  {
-    id: '03',
-    title: 'Framer Development',
-    description:
-      'Sites de alta performance e animações fluidas com Framer. Ideal para landing pages, portfólios e produtos digitais.',
-    image:
-      'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200',
-  },
-  {
-    id: '04',
-    title: 'Branding',
-    description:
-      'Identidade visual completa para o seu negócio — logotipo, paleta de cores, tipografia e guia de marca que transmite profissionalismo.',
-    image:
-      'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200',
-  },
-  {
-    id: '05',
-    title: 'UI/UX Design',
-    description:
-      'Interfaces pensadas para conversão. Protótipos interativos, wireframes e design centrado no utilizador, do conceito ao pixel final.',
-    image:
-      'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1200',
-  },
-  {
-    id: '06',
-    title: 'Projetos Sob Medida',
-    description:
-      'Sistemas personalizados, dashboards, integrações com APIs, automações e soluções completas full-stack para o seu negócio.',
-    image:
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200',
-  },
+const SERVICE_IMAGES = [
+  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200',
+  'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200',
+  'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200',
+  'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200',
+  'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=1200',
+  'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200',
 ];
 
 const AUTO_PLAY_DURATION = 5000;
 
 export default function VerticalTabs() {
+  const { t } = useTranslation();
+  const services = t('verticalTabs.services', { returnObjects: true });
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   const handleNext = useCallback(() => {
     setDirection(1);
-    setActiveIndex(prev => (prev + 1) % SERVICES.length);
-  }, []);
+    setActiveIndex(prev => (prev + 1) % services.length);
+  }, [services.length]);
 
   const handlePrev = useCallback(() => {
     setDirection(-1);
-    setActiveIndex(prev => (prev - 1 + SERVICES.length) % SERVICES.length);
-  }, []);
+    setActiveIndex(prev => (prev - 1 + services.length) % services.length);
+  }, [services.length]);
 
   const handleTabClick = index => {
     if (index === activeIndex) return;
@@ -82,11 +44,9 @@ export default function VerticalTabs() {
 
   useEffect(() => {
     if (isPaused) return;
-
     const interval = setInterval(() => {
       handleNext();
     }, AUTO_PLAY_DURATION);
-
     return () => clearInterval(interval);
   }, [activeIndex, isPaused, handleNext]);
 
@@ -114,9 +74,9 @@ export default function VerticalTabs() {
     >
       <div className='max-w-300 mx-auto'>
         <SectionHeader
-          label='Serviços'
-          title='Como posso ajudar o seu <em>negócio.</em>'
-          description='Do conceito ao deploy — soluções completas de desenvolvimento, design e branding para impulsionar a sua presença digital.'
+          label={t('verticalTabs.label')}
+          title={t('verticalTabs.title')}
+          description={t('verticalTabs.description')}
         />
 
         <FadeIn>
@@ -124,11 +84,12 @@ export default function VerticalTabs() {
             {/* Left Column: Tabs */}
             <div className='lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-4'>
               <div className='flex flex-col space-y-0'>
-                {SERVICES.map((service, index) => {
+                {services.map((service, index) => {
                   const isActive = activeIndex === index;
+                  const id = String(index + 1).padStart(2, '0');
                   return (
                     <button
-                      key={service.id}
+                      key={id}
                       onClick={() => handleTabClick(index)}
                       className={cn(
                         'group relative flex items-start gap-4 py-5 md:py-6 text-left transition-all duration-500 border-t border-zinc-200 dark:border-zinc-800 first:border-0 bg-transparent cursor-pointer',
@@ -137,7 +98,6 @@ export default function VerticalTabs() {
                           : 'text-zinc-400 dark:text-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300',
                       )}
                     >
-                      {/* Progress bar */}
                       <div className='absolute left-[-16px] md:left-[-24px] top-0 bottom-0 w-[2px] bg-zinc-200 dark:bg-zinc-800'>
                         {isActive && (
                           <motion.div
@@ -156,7 +116,7 @@ export default function VerticalTabs() {
                       </div>
 
                       <span className='text-[9px] md:text-[10px] font-medium mt-1 tabular-nums opacity-50'>
-                        /{service.id}
+                        /{id}
                       </span>
 
                       <div className='flex flex-col gap-2 flex-1'>
@@ -226,16 +186,14 @@ export default function VerticalTabs() {
                       onClick={handleNext}
                     >
                       <img
-                        src={SERVICES[activeIndex].image}
-                        alt={SERVICES[activeIndex].title}
+                        src={SERVICE_IMAGES[activeIndex]}
+                        alt={services[activeIndex]?.title}
                         className='w-full h-full object-cover transition-transform duration-700 hover:scale-105 block'
                       />
-
                       <div className='absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60' />
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Navigation buttons */}
                   <div className='absolute bottom-6 right-6 md:bottom-8 md:right-8 flex gap-2 md:gap-3 z-20'>
                     <button
                       onClick={e => {
@@ -243,7 +201,7 @@ export default function VerticalTabs() {
                         handlePrev();
                       }}
                       className='w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-900 dark:text-zinc-100 hover:bg-white dark:hover:bg-zinc-800 transition-all active:scale-90 cursor-pointer'
-                      aria-label='Anterior'
+                      aria-label={t('verticalTabs.prev')}
                     >
                       <ArrowLeft size={20} />
                     </button>
@@ -253,7 +211,7 @@ export default function VerticalTabs() {
                         handleNext();
                       }}
                       className='w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-900 dark:text-zinc-100 hover:bg-white dark:hover:bg-zinc-800 transition-all active:scale-90 cursor-pointer'
-                      aria-label='Próximo'
+                      aria-label={t('verticalTabs.next')}
                     >
                       <ArrowRight size={20} />
                     </button>

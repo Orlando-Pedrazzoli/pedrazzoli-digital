@@ -1,0 +1,528 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "about": "About",
+    "plans": "Plans",
+    "faq": "FAQ",
+    "talkToMe": "Talk to Me",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation"
+  },
+
+  "hero": {
+    "sections": [
+      {
+        "headline": "Pedrazzoli",
+        "subheadline": "Digital",
+        "body": "Custom-built websites and online stores that actually drive sales."
+      },
+      {
+        "headline": "Websites",
+        "subheadline": "Professional",
+        "body": "Modern design, custom code, optimized SEO and top performance. No templates."
+      },
+      {
+        "headline": "E-Commerce",
+        "subheadline": "Complete",
+        "body": "Full online stores with cart, checkout, Pagar.me/Stripe and management dashboard."
+      },
+      {
+        "headline": "Design",
+        "subheadline": "& Branding",
+        "body": "UI/UX, visual identity, logos and interactive prototypes designed for conversion."
+      },
+      {
+        "headline": "Framer",
+        "subheadline": "Development",
+        "body": "High-performance animated landing pages and portfolios with Framer."
+      },
+      {
+        "headline": "Let's",
+        "subheadline": "Build Together",
+        "body": "From briefing to deploy — talk directly to me, no agency in between."
+      }
+    ],
+    "loading": "Loading..."
+  },
+
+  "features": {
+    "label": "Features",
+    "title": "Everything included. <em>No surprises.</em>",
+    "description": "Every project is delivered complete and ready to go. Explore Pedrazzoli Digital's areas of expertise.",
+    "folders": [
+      {
+        "title": "Web Development",
+        "description": "Websites, E-Commerce & Apps",
+        "projects": [
+          "Sites & Intranets",
+          "E-Commerce & CMS",
+          "Integrations & APIs"
+        ]
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "Visual Design & Experience",
+        "projects": [
+          "Visual Design",
+          "Research & Discovery",
+          "Testing & Validation"
+        ]
+      },
+      {
+        "title": "Digital Strategy",
+        "description": "Planning & Consulting",
+        "projects": [
+          "Technical Strategy",
+          "Information Architecture",
+          "Content Strategy"
+        ]
+      },
+      {
+        "title": "SEO",
+        "description": "Google Optimization",
+        "projects": [
+          "Technical SEO",
+          "Keywords & Analysis",
+          "Performance & Core Web Vitals"
+        ]
+      },
+      {
+        "title": "Ongoing Support",
+        "description": "Maintenance & Growth",
+        "projects": ["Maintenance", "Assessment & Audit", "Growth & Scaling"]
+      },
+      {
+        "title": "Artificial Intelligence",
+        "description": "Automation & AI",
+        "projects": [
+          "AI Consulting",
+          "Automations & Chatbots",
+          "Cloud & Infrastructure"
+        ]
+      }
+    ]
+  },
+
+  "businessTypes": {
+    "label": "Solutions for Your Business",
+    "title": "Regardless of the industry, your website needs to <em>sell.</em>",
+    "description": "Every business has different needs. I develop specific solutions for your segment, with the features that truly make a difference day to day.",
+    "notFound": "Didn't find your segment?",
+    "tellMe": "Tell me what it is",
+    "weServe": "— we probably already serve it.",
+    "types": [
+      {
+        "name": "Online Store",
+        "desc": "Complete e-commerce with catalog, cart, checkout and order management."
+      },
+      {
+        "name": "Restaurant",
+        "desc": "Digital menu, online ordering, table QR code and integrated delivery."
+      },
+      {
+        "name": "Clinic & Healthcare",
+        "desc": "Institutional website with online scheduling, medical team and LGPD compliance."
+      },
+      {
+        "name": "Real Estate",
+        "desc": "Property listings with filters, photos, interactive map and direct contact."
+      },
+      {
+        "name": "Education & Courses",
+        "desc": "Class platform, online enrollment, student portal and certificates."
+      },
+      {
+        "name": "Services & Workshop",
+        "desc": "Service portfolio, online quotes and client testimonials."
+      },
+      {
+        "name": "Office & Consulting",
+        "desc": "Professional institutional website with case studies, blog and lead generation."
+      },
+      {
+        "name": "Beauty & Wellness",
+        "desc": "Online booking, work gallery, promotions and client reviews."
+      }
+    ]
+  },
+
+  "portfolio": {
+    "label": "Portfolio",
+    "title": "<em>Real</em> projects, real results.",
+    "description": "Every project is built from scratch with custom code. No templates, no limitations — and with measurable results.",
+    "viewAll": "View all projects",
+    "allProjectsTitle": "All <em>projects</em>",
+    "visitSite": "Visit site",
+    "privateProject": "Private project",
+    "viewFeatures": "View features",
+    "backToHome": "Back to home",
+    "items": [
+      {
+        "title": "Elite Surfing",
+        "description": "E-Commerce with 446+ products, optimized checkout and automatic PIX."
+      },
+      {
+        "title": "Centro Dentario Colombo",
+        "description": "Bilingual PT/EN institutional website with integrated scheduling."
+      },
+      {
+        "title": "Street Paint",
+        "description": "Workshop with interactive quote by car part and AI chatbot."
+      },
+      {
+        "title": "Go Portugal Tours",
+        "description": "24 private tour routes with dynamic pricing."
+      }
+    ],
+    "projects": [
+      {
+        "desc": "Complete online store with 446+ products, optimized checkout, automatic PIX discount and admin panel. 100% digital operation.",
+        "result": "Store live and selling in under 45 days."
+      },
+      {
+        "desc": "Bilingual PT/EN website for a Lisbon clinic. Patient portal, admin panel, Clerk authentication and GDPR compliance.",
+        "result": "Site delivered in 3 weeks, 100% GDPR compliant."
+      },
+      {
+        "desc": "Workshop in Sintra with interactive car part quote via SVG and WhatsApp integration.",
+        "result": "Online quotes reducing unnecessary calls."
+      },
+      {
+        "desc": "24 private tour routes with dynamic group pricing, Zod form and PT/EN support.",
+        "result": "Direct bookings without intermediaries."
+      },
+      {
+        "desc": "Instagram analytics SaaS platform. Dashboard with billing, activity tracker, anonymous viewer and HD downloader.",
+        "result": "Complete SaaS platform with Stripe subscriptions."
+      },
+      {
+        "desc": "Law firm website with bookstore, course platform and custom dark/light theme.",
+        "result": "Complete website with integrated store and LGPD compliance."
+      },
+      {
+        "desc": "B2B order management platform with multi-vendor catalog, price tables and PDF/Excel export.",
+        "result": "Complete management system for distributors."
+      },
+      {
+        "desc": "Digital menu and management system for Indian restaurant with admin panel, QR code and dietary filters.",
+        "result": "Complete digital menu with integrated management."
+      }
+    ]
+  },
+
+  "testimonials": {
+    "label": "Testimonials",
+    "title": "Those who worked with me, <em>recommend.</em>",
+    "description": "Real results from real clients. Every delivered project is a partnership of trust.",
+    "items": [
+      {
+        "text": "Orlando turned my idea into a professional online store in under 45 days. Today we sell across all of Brazil with a fast, beautiful site that actually converts.",
+        "role": "CEO"
+      },
+      {
+        "text": "We needed a bilingual site, GDPR compliant and that conveyed trust. The result exceeded expectations — professional, fast and patients constantly compliment it.",
+        "role": "Clinical Director"
+      },
+      {
+        "text": "The online quote system completely changed our service. Clients already arrive knowing the price, reduced unnecessary calls and increased conversions.",
+        "role": "Owner"
+      },
+      {
+        "text": "Having 24 tours with dynamic pricing and direct bookings without intermediaries was a game changer. SEO is already bringing tourists organically. I recommend without hesitation.",
+        "role": "Founder"
+      }
+    ]
+  },
+
+  "process": {
+    "label": "How It Works",
+    "title": "From first contact to <em>site launch.</em>",
+    "steps": [
+      {
+        "title": "Conversation",
+        "desc": "We understand your business, audience, goals and specific needs. No commitment, no technical jargon."
+      },
+      {
+        "title": "Proposal",
+        "desc": "We present the ideal plan with everything detailed: features, timeline and investment. Full transparency."
+      },
+      {
+        "title": "Creation",
+        "desc": "We develop your site with you following along. Adjustments until final approval."
+      },
+      {
+        "title": "Launch",
+        "desc": "Site live, domain configured, training for you to manage everything yourself. Support included."
+      }
+    ]
+  },
+
+  "techStack": {
+    "label": "Technologies",
+    "title": "Tools I <em>use.</em>",
+    "description": "Modern stack tested in production. Each technology is chosen for the results it delivers to your business."
+  },
+
+  "plans": {
+    "label": "Investment",
+    "title": "<em>Transparent</em> plans.",
+    "description": "One-time payment for creation. You pay for what you get — and you get everything working.",
+    "warning": "<strong>A poorly made site costs you every day.</strong> Slow, no conversion or stuck on a generic template — you lose clients before they even see your product. A professional site works for you 24/7.",
+    "trustSignals": [
+      "Formal contract",
+      "Invoice issued",
+      "Delivery in 15-45 days",
+      "Service across all of Brazil"
+    ],
+    "guarantee": "<strong>Satisfaction guarantee:</strong> Adjustments until final approval. If the result isn't as expected, we refine together until we get there.",
+    "maintenance": "<strong>Optional monthly maintenance:</strong> Starting at {{price}}/month for {{description}}",
+    "maintenancePrice": "\u20ac50",
+    "maintenanceDesc": "updates, ongoing support and improvements to your site.",
+    "mostPopular": "Most requested",
+    "startingFrom": "starting from",
+    "list": [
+      {
+        "name": "Institutional Website",
+        "desc": "Professional online presence",
+        "price": "300",
+        "currency": "\u20ac",
+        "fromPrice": true,
+        "features": [
+          "Up to 5 pages",
+          "Custom responsive design",
+          "Contact form / WhatsApp",
+          "Basic SEO configured",
+          "Custom domain + hosting",
+          "Google Analytics integrated",
+          "30 days of support"
+        ],
+        "cta": "I Want My Website"
+      },
+      {
+        "name": "E-Commerce",
+        "desc": "Complete online store",
+        "price": "500",
+        "currency": "\u20ac",
+        "fromPrice": true,
+        "features": [
+          "Unlimited products",
+          "Cart + complete checkout",
+          "PIX, card (up to 12x), boleto",
+          "Automatic shipping calculation",
+          "Order management dashboard",
+          "Review system",
+          "Blog + coupons + promotions",
+          "Optimized SEO",
+          "60 days of support"
+        ],
+        "cta": "I Want My Store"
+      },
+      {
+        "name": "Custom Project",
+        "desc": "Specific needs",
+        "price": "On request",
+        "currency": "",
+        "fromPrice": false,
+        "features": [
+          "Custom scope",
+          "Exclusive features",
+          "External system integrations",
+          "Complete admin panel",
+          "Client/student portal",
+          "Mobile app (if needed)",
+          "Team training",
+          "Ongoing support + maintenance"
+        ],
+        "cta": "Request Quote"
+      }
+    ]
+  },
+
+  "faq": {
+    "label": "Questions",
+    "title": "Frequently asked <em>questions.</em>",
+    "items": [
+      {
+        "question": "How long does it take to be ready?",
+        "answer": "Institutional websites are ready in 7 to 15 days. E-commerces between 3 to 5 weeks. Custom projects depend on scope, but we set the deadline before starting."
+      },
+      {
+        "question": "Do I need technical knowledge?",
+        "answer": "No. The management panel is made for anyone to use. Plus, every project includes training so you can manage everything on your own."
+      },
+      {
+        "question": "What if I already have a site and want to improve it?",
+        "answer": "We also work with redesign and migration. We analyze your current site and propose the necessary improvements."
+      },
+      {
+        "question": "What happens after launch?",
+        "answer": "All plans include post-launch support. We also offer monthly maintenance plans for those who want continuous monitoring and updates."
+      },
+      {
+        "question": "Can I use my current domain?",
+        "answer": "Yes! We configure it on the domain you already have or help register a new one."
+      },
+      {
+        "question": "Do you also build apps?",
+        "answer": "Yes. For projects that need a mobile app, we develop with React Native. Talk to us so we can understand your need."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "We split into stages: a deposit to start the project and the rest on delivery. We accept PIX, transfer and card."
+      }
+    ]
+  },
+
+  "about": {
+    "label": "Who's behind it",
+    "name": "Orlando Pedrazzoli",
+    "bio": "I'm not an agency with 50 people. I'm a developer who understands business — because I spent 15 years founding and managing companies before writing my first line of code. Every project I develop gets the same dedication I gave to my own business. You talk directly to me, from first contact to final delivery.",
+    "available": "Available for projects",
+    "talkCta": "Talk to Orlando",
+    "whatsappMsg": "Hi Orlando! I want to discuss my project.",
+    "highlights": [
+      {
+        "title": "15+ years as entrepreneur",
+        "desc": "Founded and scaled Elite Surfing from zero to R$200k/month with 16 employees and a national distributor network. I know what a business needs to sell online."
+      },
+      {
+        "title": "10+ projects in production",
+        "desc": "Full Stack Developer with Ironhack training. React, Next.js, TypeScript, Node.js, MongoDB, Stripe — custom code, no shortcuts."
+      },
+      {
+        "title": "Content Operations Analyst at Accenture",
+        "desc": "Content analysis and quality assurance. Built an internal AI moderation tool using Next.js, TypeScript and Google Gemini API."
+      },
+      {
+        "title": "Continuous learning",
+        "desc": "Ironhack Full Stack Bootcamp (MERN Stack). Always up to date with the latest market technologies."
+      }
+    ]
+  },
+
+  "cta": {
+    "title": "Let's create something <em>amazing?</em>",
+    "subtitle": "Fill out the form and receive a personalized quote within 24 hours. No commitment.",
+    "directContact": "You talk directly to me.",
+    "directContactDesc": "No attendant, no agency. Orlando Pedrazzoli — the developer — responds personally.",
+    "preferNow": "Prefer to get it done now?",
+    "whatsappCta": "Start Project on WhatsApp",
+    "whatsappMsg": "Hello! I want to start my project.",
+    "form": {
+      "name": "Your name *",
+      "email": "Your email *",
+      "phone": "WhatsApp (optional)",
+      "businessType": "Business type",
+      "message": "Tell me a bit about your project... *",
+      "submit": "Start Project",
+      "sending": "Sending...",
+      "successTitle": "Message sent!",
+      "successDesc": "Response within 24 hours. Keep an eye on your email.",
+      "errorMsg": "Error sending. Try again or use WhatsApp."
+    },
+    "businessOptions": [
+      "Online Store / E-Commerce",
+      "Restaurant / Cafe",
+      "Clinic / Healthcare",
+      "Salon / Barbershop",
+      "Real Estate",
+      "Services / Workshop",
+      "Tourism",
+      "Education / Courses",
+      "Other"
+    ]
+  },
+
+  "verticalTabs": {
+    "label": "Services",
+    "title": "How I can help your <em>business.</em>",
+    "description": "From concept to deploy — complete development, design and branding solutions to boost your digital presence.",
+    "prev": "Previous",
+    "next": "Next",
+    "services": [
+      {
+        "title": "Institutional Websites",
+        "description": "Professional websites with custom code, modern design, optimized SEO and top performance. No templates, no limitations."
+      },
+      {
+        "title": "E-Commerce",
+        "description": "Complete online stores with cart, checkout, Pagar.me/Stripe integration, product management and seller dashboard."
+      },
+      {
+        "title": "Framer Development",
+        "description": "High-performance sites with fluid animations using Framer. Ideal for landing pages, portfolios and digital products."
+      },
+      {
+        "title": "Branding",
+        "description": "Complete visual identity for your business — logo, color palette, typography and brand guide that conveys professionalism."
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "Interfaces designed for conversion. Interactive prototypes, wireframes and user-centered design, from concept to final pixel."
+      },
+      {
+        "title": "Custom Projects",
+        "description": "Custom systems, dashboards, API integrations, automations and complete full-stack solutions for your business."
+      }
+    ]
+  },
+
+  "footer": {
+    "brand": "Custom-code websites and online stores, built to convert. No templates, no limitations.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "manageCookies": "Manage Cookies",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with custom code — zero templates."
+  },
+
+  "seo": {
+    "home": {
+      "title": "Pedrazzoli Digital | Websites & Online Stores",
+      "description": "Professional websites, online stores and custom systems. Modern design, custom code, optimized SEO and fair pricing. Built to convert."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Real web development projects: e-commerce, SaaS, institutional websites, B2B platforms and more. See Pedrazzoli Digital's work."
+    },
+    "services": {
+      "title": "Services | Pedrazzoli Digital",
+      "description": "Web development, e-commerce, UI/UX design, branding, SEO and ongoing support. Discover all Pedrazzoli Digital services."
+    },
+    "about": {
+      "title": "About | Pedrazzoli Digital",
+      "description": "Meet Orlando Pedrazzoli — Full Stack Developer with 10+ years of entrepreneurial experience and 3+ years in web development."
+    },
+    "plans": {
+      "title": "Plans and Pricing",
+      "description": "Transparent plans for website and online store creation. Institutional site starting at R$1,897, e-commerce starting at R$2,997. No monthly fees, no surprises."
+    },
+    "faq": {
+      "title": "FAQ | Pedrazzoli Digital",
+      "description": "Frequently asked questions about website development, online stores, timelines, payments and support from Pedrazzoli Digital."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Pedrazzoli Digital Privacy Policy. Learn how we collect, use and protect your personal data."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "description": "Terms of Use for the Pedrazzoli Digital website. General conditions for using our web development services."
+    }
+  },
+
+  "whatsapp": {
+    "businessPrefix": "Hello! I'm interested in a website for my business:"
+  },
+
+  "common": {
+    "backToHome": "Back to home"
+  }
+}

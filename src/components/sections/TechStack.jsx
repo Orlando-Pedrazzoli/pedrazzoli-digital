@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import AutoScroll from 'embla-carousel-auto-scroll';
 import {
   Carousel,
@@ -9,13 +10,15 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import FadeIn from '@/components/ui/FadeIn';
 
 export default function TechStack() {
+  const { t } = useTranslation();
+
   return (
     <section className='py-20 px-6 bg-[#F8F7F4] dark:bg-[#131834]'>
       <div className='max-w-7xl mx-auto'>
         <SectionHeader
-          label='Tecnologias'
-          title='Ferramentas que <em>utilizo.</em>'
-          description='Stack moderna e testada em produção. Cada tecnologia é escolhida pelo resultado que entrega ao seu negócio.'
+          label={t('techStack.label')}
+          title={t('techStack.title')}
+          description={t('techStack.description')}
         />
 
         <FadeIn>

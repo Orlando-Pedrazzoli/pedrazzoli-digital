@@ -1,20 +1,22 @@
 import { Mail, Phone, Instagram, Cookie } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/utils/config';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
 import { useCookieConsent } from '@/contexts/CookieProvider';
 
-const navLinks = [
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Servicos', href: '/servicos' },
-  { label: 'Sobre', href: '/sobre' },
-  { label: 'Planos', href: '/planos' },
-  { label: 'FAQ', href: '/faq' },
-];
-
 export default function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   const { openPreferences } = useCookieConsent();
+
+  const navLinks = [
+    { label: t('nav.portfolio'), href: '/portfolio' },
+    { label: t('nav.services'), href: '/servicos' },
+    { label: t('nav.about'), href: '/sobre' },
+    { label: t('nav.plans'), href: '/planos' },
+    { label: t('nav.faq'), href: '/faq' },
+  ];
 
   return (
     <footer className='pt-16 pb-8 px-6 border-t border-zinc-200 dark:border-zinc-800 bg-[#F8F7F4] dark:bg-[#131834]'>
@@ -36,15 +38,14 @@ export default function Footer() {
               </span>
             </Link>
             <p className='text-[13px] text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-65'>
-              Sites e lojas online com codigo proprio, feitos para converter.
-              Sem templates, sem limitacoes.
+              {t('footer.brand')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <h4 className='text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4'>
-              Navegacao
+              {t('footer.navigation')}
             </h4>
             <ul className='space-y-2.5 list-none p-0 m-0'>
               {navLinks.map(link => (
@@ -63,7 +64,7 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h4 className='text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4'>
-              Legal
+              {t('footer.legal')}
             </h4>
             <ul className='space-y-2.5 list-none p-0 m-0'>
               <li>
@@ -71,7 +72,7 @@ export default function Footer() {
                   to='/privacidade'
                   className='text-[13px] text-zinc-500 dark:text-zinc-400 no-underline hover:text-green-600 dark:hover:text-green-400 transition-colors'
                 >
-                  Politica de Privacidade
+                  {t('footer.privacyPolicy')}
                 </Link>
               </li>
               <li>
@@ -79,7 +80,7 @@ export default function Footer() {
                   to='/termos'
                   className='text-[13px] text-zinc-500 dark:text-zinc-400 no-underline hover:text-green-600 dark:hover:text-green-400 transition-colors'
                 >
-                  Termos de Uso
+                  {t('footer.termsOfUse')}
                 </Link>
               </li>
               <li>
@@ -87,7 +88,7 @@ export default function Footer() {
                   onClick={openPreferences}
                   className='text-[13px] text-zinc-500 dark:text-zinc-400 hover:text-green-600 dark:hover:text-green-400 transition-colors bg-transparent border-none cursor-pointer p-0 flex items-center gap-1.5'
                 >
-                  <Cookie size={12} /> Gerenciar Cookies
+                  <Cookie size={12} /> {t('footer.manageCookies')}
                 </button>
               </li>
             </ul>
@@ -96,7 +97,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className='text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-4'>
-              Contato
+              {t('footer.contact')}
             </h4>
             <ul className='space-y-3 list-none p-0 m-0'>
               <li>
@@ -136,11 +137,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className='border-t border-zinc-200 dark:border-zinc-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3'>
           <p className='text-[11px] text-zinc-400 dark:text-zinc-500'>
-            &copy; {currentYear} {siteConfig.name}. Todos os direitos
-            reservados.
+            &copy; {currentYear} {siteConfig.name}. {t('footer.rights')}
           </p>
           <p className='text-[11px] text-zinc-400 dark:text-zinc-500'>
-            Feito com codigo proprio — zero templates.
+            {t('footer.madeWith')}
           </p>
         </div>
       </div>

@@ -4,10 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import CookieProvider from './contexts/CookieProvider';
 import { Toaster } from 'react-hot-toast';
 import App from './App';
+import './i18n';
 import './styles/index.css';
 
 const root = createRoot(document.getElementById('root'));
-
 root.render(
   <StrictMode>
     <CookieProvider>
@@ -19,5 +19,4 @@ root.render(
   </StrictMode>,
 );
 
-// Sinaliza ao vite-plugin-prerender que o conteudo esta pronto para captura
 document.dispatchEvent(new Event('prerender-ready'));

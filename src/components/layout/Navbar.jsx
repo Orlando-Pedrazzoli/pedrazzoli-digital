@@ -1,25 +1,27 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/utils/config';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
 import Button from '@/components/ui/Button';
-
-/* --- link config --- */
-const navLinks = [
-  { label: 'Portfolio', href: '/portfolio', type: 'page' },
-  { label: 'Servicos', href: '/servicos', type: 'page' },
-  { label: 'Sobre', href: '/sobre', type: 'page' },
-  { label: 'Planos', href: '/planos', type: 'page' },
-  { label: 'FAQ', href: '/faq', type: 'page' },
-];
+import LanguageToggle from '@/components/ui/LanguageToggle';
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
+
+  const navLinks = [
+    { label: t('nav.portfolio'), href: '/portfolio', type: 'page' },
+    { label: t('nav.services'), href: '/servicos', type: 'page' },
+    { label: t('nav.about'), href: '/sobre', type: 'page' },
+    { label: t('nav.plans'), href: '/planos', type: 'page' },
+    { label: t('nav.faq'), href: '/faq', type: 'page' },
+  ];
 
   /* --- scroll detection --- */
   useEffect(() => {
@@ -74,7 +76,7 @@ export default function Navbar() {
       {/* ======== NAVBAR ======== */}
       <nav
         role='navigation'
-        aria-label='Navegacao principal'
+        aria-label={t('nav.mainNav')}
         className={`
           fixed top-0 inset-x-0 z-50 transition-all duration-300
           ${
@@ -130,8 +132,9 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* -- Desktop CTA -- */}
-          <div className='hidden lg:flex items-center'>
+          {/* -- Desktop CTA + Language Toggle -- */}
+          <div className='hidden lg:flex items-center gap-3'>
+            <LanguageToggle />
             <Button
               href={getWhatsAppUrl()}
               external
@@ -139,7 +142,7 @@ export default function Navbar() {
               size='sm'
               whatsapp
             >
-              Fale Comigo
+              {t('nav.talkToMe')}
             </Button>
           </div>
 
@@ -147,7 +150,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileOpen(true)}
             className='lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.06] border border-white/[0.08] text-white cursor-pointer transition-colors hover:bg-white/[0.1]'
-            aria-label='Abrir menu'
+            aria-label={t('nav.openMenu')}
             aria-expanded={mobileOpen}
             aria-controls='mobile-menu'
           >
@@ -174,7 +177,7 @@ export default function Navbar() {
         id='mobile-menu'
         role='dialog'
         aria-modal='true'
-        aria-label='Menu de navegacao'
+        aria-label={t('nav.mobileNav')}
         className={`
           fixed top-0 right-0 z-[999] h-full w-full max-w-[340px]
           bg-[#171d3a]/98 backdrop-blur-2xl
@@ -187,21 +190,24 @@ export default function Navbar() {
         {/* Panel header */}
         <div className='flex items-center justify-between px-6 h-[72px] border-b border-white/[0.06]'>
           <span className='font-serif text-lg font-normal text-white tracking-tight'>
-            Menu
+            {t('nav.menu')}
           </span>
-          <button
-            onClick={() => setMobileOpen(false)}
-            className='flex items-center justify-center w-9 h-9 rounded-xl bg-white/[0.06] border border-white/[0.08] text-white cursor-pointer transition-colors hover:bg-white/[0.1]'
-            aria-label='Fechar menu'
-          >
-            <X size={18} strokeWidth={2} />
-          </button>
+          <div className='flex items-center gap-2'>
+            <LanguageToggle />
+            <button
+              onClick={() => setMobileOpen(false)}
+              className='flex items-center justify-center w-9 h-9 rounded-xl bg-white/[0.06] border border-white/[0.08] text-white cursor-pointer transition-colors hover:bg-white/[0.1]'
+              aria-label={t('nav.closeMenu')}
+            >
+              <X size={18} strokeWidth={2} />
+            </button>
+          </div>
         </div>
 
         {/* Panel links */}
         <nav
           className='flex-1 overflow-y-auto px-4 py-4'
-          aria-label='Menu mobile'
+          aria-label={t('nav.mobileNav')}
         >
           <ul className='list-none m-0 p-0 flex flex-col gap-1'>
             {navLinks.map((link, i) => {
@@ -244,7 +250,7 @@ export default function Navbar() {
             whatsapp
             fullWidth
           >
-            Fale Comigo
+            {t('nav.talkToMe')}
           </Button>
           <p className='text-center text-xs text-zinc-500 mt-3'>
             {siteConfig.email}

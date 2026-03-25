@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import FadeIn from '@/components/ui/FadeIn';
 import SectionHeader from '@/components/ui/SectionHeader';
-import { faqItems } from '@/data/faq';
+
 export default function FAQ() {
+  const { t } = useTranslation();
+  const faqItems = t('faq.items', { returnObjects: true });
   const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <section id='faq' className='py-24 px-6 bg-[#F8F7F4] dark:bg-[#131834]'>
       <div className='max-w-175 mx-auto'>
-        <SectionHeader label='Dúvidas' title='Perguntas <em>frequentes.</em>' />
+        <SectionHeader label={t('faq.label')} title={t('faq.title')} />
         <div>
           {faqItems.map((item, i) => (
             <FadeIn key={i} delay={i * 40}>

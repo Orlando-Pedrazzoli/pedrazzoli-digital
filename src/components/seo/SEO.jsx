@@ -1,12 +1,9 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/utils/config';
 
 /**
- * SEO Component — Atualiza meta tags via DOM
- *
- * Funciona em dois modos:
- * 1. Client-side: atualiza meta tags dinamicamente por rota
- * 2. Pre-render: durante o build, o HTML capturado ja tera as meta tags corretas
+ * SEO Component — Atualiza meta tags via DOM com suporte i18n
  *
  * @param {string} title - Titulo da pagina
  * @param {string} description - Descricao meta
@@ -23,11 +20,20 @@ export default function SEO({
   jsonLd = null,
   image = null,
 }) {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
+
   const fullTitle = title
     ? `${title} | ${siteConfig.name}`
     : siteConfig.seo.defaultTitle;
   const url = `${siteConfig.url}${path}`;
   const ogImage = image || `${siteConfig.url}${siteConfig.seo.ogImage}`;
+
+  const localeMap = {
+    pt: 'pt_BR',
+    en: 'en_US',
+  };
+  const ogLocale = localeMap[currentLang] || 'en_US';
 
   useEffect(() => {
     // -- Titulo
@@ -78,7 +84,7 @@ export default function SEO({
     setMeta('property', 'og:image:width', '1200');
     setMeta('property', 'og:image:height', '630');
     setMeta('property', 'og:image:alt', fullTitle);
-    setMeta('property', 'og:locale', siteConfig.seo.locale);
+    setMeta('property', 'og:locale', ogLocale);
 
     // -- Twitter / X
     setMeta('name', 'twitter:card', 'summary_large_image');
@@ -92,11 +98,12 @@ export default function SEO({
     // -- Canonical
     setLink('canonical', url);
 
-    // -- Hreflang (pt-BR principal + x-default)
+    // -- Hreflang (ambos os idiomas + x-default)
     setLink('alternate', url, { hreflang: 'pt-BR' });
+    setLink('alternate', url, { hreflang: 'en' });
     setLink('alternate', url, { hreflang: 'x-default' });
 
-    // -- JSON-LD dinamico (para paginas que precisam de structured data custom)
+    // -- JSON-LD dinamico
     if (jsonLd) {
       const id = 'dynamic-jsonld';
       let script = document.getElementById(id);
@@ -107,13 +114,12 @@ export default function SEO({
         document.head.appendChild(script);
       }
       script.textContent = JSON.stringify(jsonLd);
-
       return () => {
         const el = document.getElementById(id);
         if (el) el.remove();
       };
     }
-  }, [fullTitle, description, url, ogImage, type, jsonLd]);
+  }, [fullTitle, description, url, ogImage, type, jsonLd, ogLocale]);
 
   return null;
 }

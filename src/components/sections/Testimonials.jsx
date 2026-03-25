@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import FadeIn from '@/components/ui/FadeIn';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { testimonials } from '@/data/testimonials';
 
-/* ─── Hook para dimensões responsivas do carrossel 3D ─── */
 function useResponsiveCarousel() {
   const [dims, setDims] = useState({
     cardWidth: 300,
@@ -46,7 +46,6 @@ function useResponsiveCarousel() {
         });
       }
     };
-
     calc();
     window.addEventListener('resize', calc);
     return () => window.removeEventListener('resize', calc);
@@ -56,6 +55,9 @@ function useResponsiveCarousel() {
 }
 
 export default function Testimonials() {
+  const { t } = useTranslation();
+  const itemTranslations = t('testimonials.items', { returnObjects: true });
+
   const [rotation, setRotation] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef(null);
@@ -72,11 +74,9 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (isHovering && pauseOnHover) return;
-
     const interval = setInterval(() => {
       setRotation(prev => (prev + 0.3) % 360);
     }, 50);
-
     return () => clearInterval(interval);
   }, [isHovering, pauseOnHover]);
 
@@ -85,7 +85,6 @@ export default function Testimonials() {
     setRotation(targetRotation % 360);
   };
 
-  /* Touch / swipe support */
   const handleTouchStart = e => {
     touchStartRef.current = e.touches[0].clientX;
     setIsHovering(true);
@@ -95,12 +94,10 @@ export default function Testimonials() {
     if (touchStartRef.current === null) return;
     const delta = e.changedTouches[0].clientX - touchStartRef.current;
     if (Math.abs(delta) > 40) {
-      // Swipe: rotate by one card
       const direction = delta > 0 ? -1 : 1;
       setRotation(prev => (prev + direction * angleSlice) % 360);
     }
     touchStartRef.current = null;
-    // Resume auto-rotation after short delay
     setTimeout(() => setIsHovering(false), 2000);
   };
 
@@ -108,9 +105,9 @@ export default function Testimonials() {
     <section id='depoimentos' className='py-24 px-6 bg-[#131834]'>
       <div className='max-w-300 mx-auto'>
         <SectionHeader
-          label='Depoimentos'
-          title='Quem já trabalhou comigo, <em>recomenda.</em>'
-          description='Resultados reais de clientes reais. Cada projeto entregue é uma parceria de confiança.'
+          label={t('testimonials.label')}
+          title={t('testimonials.title')}
+          description={t('testimonials.description')}
         />
 
         <FadeIn>
@@ -137,10 +134,11 @@ export default function Testimonials() {
                 animate={{ rotateY: rotation }}
                 transition={{ type: 'tween', duration: 0.8, ease: 'easeOut' }}
               >
-                {testimonials.map((t, index) => {
+                {testimonials.map((testimonial, index) => {
                   const angle = (index * angleSlice * Math.PI) / 180;
                   const x = Math.cos(angle) * zDepth;
                   const z = Math.sin(angle) * zDepth;
+                  const it = itemTranslations[index] || {};
 
                   return (
                     <motion.div
@@ -156,11 +154,7 @@ export default function Testimonials() {
                         transformStyle: 'preserve-3d',
                         backfaceVisibility: 'hidden',
                       }}
-                      animate={{
-                        x,
-                        z,
-                        rotateY: -rotation,
-                      }}
+                      animate={{ x, z, rotateY: -rotation }}
                       transition={{
                         type: 'tween',
                         duration: 0.5,
@@ -173,31 +167,29 @@ export default function Testimonials() {
                         className='w-full h-full bg-[#1a2042] border border-white/[0.08] shadow-2xl overflow-hidden p-5 sm:p-6 flex flex-col justify-between'
                         style={{ borderRadius: `${borderRadius}px` }}
                       >
-                        {/* Stars */}
                         <div>
                           <div className='flex gap-1 mb-4'>
-                            {Array.from({ length: t.rating }).map((_, i) => (
-                              <Star
-                                key={i}
-                                size={14}
-                                className='text-amber-400 fill-amber-400'
-                              />
-                            ))}
+                            {Array.from({ length: testimonial.rating }).map(
+                              (_, i) => (
+                                <Star
+                                  key={i}
+                                  size={14}
+                                  className='text-amber-400 fill-amber-400'
+                                />
+                              ),
+                            )}
                           </div>
-
-                          {/* Quote */}
                           <p className='text-[13px] leading-relaxed text-zinc-300 line-clamp-5'>
-                            &ldquo;{t.text}&rdquo;
+                            &ldquo;{it.text || testimonial.text}&rdquo;
                           </p>
                         </div>
-
-                        {/* Author */}
                         <div className='mt-4 pt-4 border-t border-white/[0.06]'>
                           <p className='text-[14px] font-bold text-zinc-100'>
-                            {t.name}
+                            {testimonial.name}
                           </p>
                           <p className='text-[12px] text-zinc-500'>
-                            {t.role} · {t.company}
+                            {it.role || testimonial.role} ·{' '}
+                            {testimonial.company}
                           </p>
                         </div>
                       </div>
