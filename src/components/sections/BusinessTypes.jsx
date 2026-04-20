@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import FadeIn from '@/components/ui/FadeIn';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -9,7 +10,10 @@ export default function BusinessTypes() {
   const typeTranslations = t('businessTypes.types', { returnObjects: true });
 
   return (
-    <section id='solucoes' className='py-24 px-6 bg-white dark:bg-[#131834]'>
+    <section
+      id='solucoes'
+      className='py-24 px-6 bg-[#F8F7F4] dark:bg-[#131834]'
+    >
       <div className='max-w-7xl mx-auto'>
         <SectionHeader
           label={t('businessTypes.label')}
@@ -17,60 +21,59 @@ export default function BusinessTypes() {
           description={t('businessTypes.description')}
         />
 
-        <FadeIn>
-          <div className='flex justify-center items-center flex-wrap gap-y-8 gap-x-4 sm:gap-x-6 md:gap-x-8'>
-            {businessTypes.map(({ gradientFrom, gradientTo }, idx) => {
-              const bt = typeTranslations[idx] || {};
-              return (
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mt-12'>
+          {businessTypes.map(({ icon: Icon }, idx) => {
+            const bt = typeTranslations[idx] || {};
+            return (
+              <FadeIn key={idx} delay={idx * 60}>
                 <a
-                  key={idx}
                   href={getBusinessWhatsApp(bt.name)}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='no-underline'
+                  className='group no-underline block h-full'
                 >
-                  <div className='group relative w-[min(280px,calc(100vw-3rem))] h-[320px] transition-all duration-500'>
-                    <span
-                      className='absolute top-0 left-[50px] w-1/2 h-full rounded-lg transform skew-x-[15deg] transition-all duration-500 group-hover:skew-x-0 group-hover:left-[20px] group-hover:w-[calc(100%-90px)]'
-                      style={{
-                        background: `linear-gradient(315deg, ${gradientFrom}, ${gradientTo})`,
-                      }}
-                    />
-                    <span
-                      className='absolute top-0 left-[50px] w-1/2 h-full rounded-lg transform skew-x-[15deg] blur-[30px] transition-all duration-500 group-hover:skew-x-0 group-hover:left-[20px] group-hover:w-[calc(100%-90px)]'
-                      style={{
-                        background: `linear-gradient(315deg, ${gradientFrom}, ${gradientTo})`,
-                      }}
-                    />
+                  <div className='relative h-full flex flex-col rounded-2xl p-6 sm:p-7 bg-white dark:bg-[#1a2042] border border-zinc-200 dark:border-white/[0.08] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-green-600/40 dark:hover:border-green-500/40 hover:shadow-[0_12px_40px_rgba(22,163,74,0.08)] dark:hover:shadow-[0_12px_40px_rgba(22,163,74,0.15)] overflow-hidden'>
+                    <div className='absolute -top-16 -left-16 w-40 h-40 rounded-full bg-green-600/0 dark:bg-green-500/0 group-hover:bg-green-600/[0.06] dark:group-hover:bg-green-500/[0.08] blur-3xl transition-all duration-500 pointer-events-none' />
 
-                    <span className='pointer-events-none absolute inset-0 z-10 hidden sm:block'>
-                      <span className='absolute top-0 left-0 w-0 h-0 rounded-lg opacity-0 bg-[rgba(255,255,255,0.1)] backdrop-blur-[10px] shadow-[0_5px_15px_rgba(0,0,0,0.08)] transition-all duration-100 animate-blob group-hover:top-[-50px] group-hover:left-[50px] group-hover:w-[100px] group-hover:h-[100px] group-hover:opacity-100' />
-                      <span className='absolute bottom-0 right-0 w-0 h-0 rounded-lg opacity-0 bg-[rgba(255,255,255,0.1)] backdrop-blur-[10px] shadow-[0_5px_15px_rgba(0,0,0,0.08)] transition-all duration-500 animate-blob animation-delay-1000 group-hover:bottom-[-50px] group-hover:right-[50px] group-hover:w-[100px] group-hover:h-[100px] group-hover:opacity-100' />
-                    </span>
+                    <div className='relative mb-5'>
+                      <div className='inline-flex items-center justify-center w-12 h-12 rounded-xl bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 transition-all duration-300 group-hover:bg-green-100 dark:group-hover:bg-green-500/20 group-hover:scale-105'>
+                        <Icon
+                          size={22}
+                          strokeWidth={1.8}
+                          className='text-green-600 dark:text-green-400'
+                        />
+                      </div>
+                    </div>
 
-                    <div className='relative z-20 left-0 p-[24px_24px] sm:p-[24px_30px] bg-[rgba(19,24,52,0.85)] backdrop-blur-[12px] shadow-lg rounded-lg text-white transition-all duration-500 sm:group-hover:left-[-25px] sm:group-hover:p-[40px_30px]'>
-                      <h2
-                        className='text-lg sm:text-xl font-semibold mb-3'
-                        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}
-                      >
-                        {bt.name}
-                      </h2>
-                      <p
-                        className='text-[13px] sm:text-sm leading-relaxed text-white/80'
-                        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}
-                      >
-                        {bt.desc}
-                      </p>
+                    <h3 className='relative text-[17px] sm:text-[18px] font-bold text-zinc-900 dark:text-zinc-100 mb-2 leading-tight transition-colors duration-300 group-hover:text-green-700 dark:group-hover:text-green-400'>
+                      {bt.name}
+                    </h3>
+
+                    <p className='relative text-[13.5px] leading-relaxed text-zinc-600 dark:text-zinc-400 flex-1'>
+                      {bt.desc}
+                    </p>
+
+                    <div className='relative mt-6 pt-4 border-t border-zinc-100 dark:border-white/[0.06] flex items-center justify-between'>
+                      <span className='text-[12px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 transition-colors duration-300 group-hover:text-green-600 dark:group-hover:text-green-400'>
+                        {t('businessTypes.talkOnWhatsApp')}
+                      </span>
+                      <div className='flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-100 dark:bg-white/[0.04] transition-all duration-300 group-hover:bg-green-600 dark:group-hover:bg-green-500 group-hover:scale-110'>
+                        <ArrowUpRight
+                          size={15}
+                          strokeWidth={2.2}
+                          className='text-zinc-500 dark:text-zinc-400 transition-colors duration-300 group-hover:text-white'
+                        />
+                      </div>
                     </div>
                   </div>
                 </a>
-              );
-            })}
-          </div>
-        </FadeIn>
+              </FadeIn>
+            );
+          })}
+        </div>
 
         <FadeIn delay={300}>
-          <p className='text-center mt-8 text-sm text-zinc-500 dark:text-zinc-400'>
+          <p className='text-center mt-10 text-sm text-zinc-500 dark:text-zinc-400'>
             {t('businessTypes.notFound')}{' '}
             <a
               href={getBusinessWhatsApp('outro segmento')}
@@ -84,15 +87,6 @@ export default function BusinessTypes() {
           </p>
         </FadeIn>
       </div>
-
-      <style>{`
-        @keyframes blob {
-          0%, 100% { transform: translateY(10px); }
-          50% { transform: translate(-10px); }
-        }
-        .animate-blob { animation: blob 2s ease-in-out infinite; }
-        .animation-delay-1000 { animation-delay: -1s; }
-      `}</style>
     </section>
   );
 }
