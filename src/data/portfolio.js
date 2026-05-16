@@ -176,7 +176,7 @@ export const portfolioProjects = [
     name: 'Ferri Schoedl Advocacia',
     type: 'Site Institucional + Loja',
     desc: 'Website de escritorio de advocacia com loja de livros, plataforma de cursos e tema dark/light customizado.',
-    url: 'https://ferrischoeld.vercel.app/',
+    url: 'https://surfersparadiseloja.vercel.app/',
     screenshot: '/ferri-tumb.png',
     color: '#b45309',
     icon: Scale,

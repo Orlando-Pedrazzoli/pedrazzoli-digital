@@ -161,6 +161,16 @@
     "privateProject": "Projeto privado",
     "viewFeatures": "Ver funcionalidades",
     "backToHome": "Voltar ao inicio",
+    "seeAllTitle": "Existem muito mais cases no portfolio completo.",
+    "seeAllDesc": "Projetos privados, SaaS, plataformas B2B, sistemas internos e mais — com detalhes tecnicos de cada solucao entregue.",
+    "categories": {
+      "ecommerce": "E-Commerce",
+      "institutional": "Institucional",
+      "service": "Servicos",
+      "booking": "Reservas",
+      "saas": "SaaS",
+      "b2b": "B2B"
+    },
     "items": [
       {
         "title": "Elite Surfing",
